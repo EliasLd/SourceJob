@@ -4,7 +4,7 @@ import logo from '../assets/logo.png'
 
 function Catchy(){
     return(
-        <div className='m-10 '>
+        <div className='m-10'>
             <h1 className='text-2xl'>Une meilleur gestion de vos candidature à portée de mains</h1>
             <h3 className='mt-2'>Optez pour SourceJob</h3>
         </div>
