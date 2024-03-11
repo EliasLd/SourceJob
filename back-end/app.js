@@ -10,8 +10,8 @@ mongoose.connect(`mongodb+srv://Elias:W4dJeX8jI4xQWeom@sourcejob.fd2djbg.mongodb
 {
   useNewUrlParser: true,
   useUnifiedTopology: true
-}).then(() => console.log('MongoDB connexion sucess !'))
-  .catch(() => console.log('MongoDB connexion failed'));
+}).then(() => console.log('MongoDB connection sucess !'))
+  .catch(() => console.log('MongoDB connection failed !'));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
