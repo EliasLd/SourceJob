@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const jobsRoutes = require('./routes/jobs');
+const userRoutes = require('./routes/user');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.use('/api/jobs', jobsRoutes);
+app.use('/api/auth', userRoutes);
 
 module.exports = app;
 
