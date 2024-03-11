@@ -4,7 +4,7 @@ import AddJob from '../components/AddJob';
 
 function App() {
     return (
-        <AppRouter />
+        <AddJob />
     );
 }
 
