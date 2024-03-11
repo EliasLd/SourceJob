@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.svg'
+import logo from '../assets/logo.png'
 
 function Catchy(){
     return(
@@ -16,7 +16,7 @@ function Nav(){
       <div>
         <nav className="flex flex-wrap justify-between items-center py-10 mx-14">
           <Link to="/">
-            <img src={logo} alt="Logo de l'application" className='w-10 h-10'/>
+            <img src={logo} alt="Logo de l'application" className='w-20 h-20'/>
           </Link>
           <ul>
             <Link to="/auth/login">
