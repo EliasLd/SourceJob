@@ -35,11 +35,29 @@ app.post('/api/jobs', (req, res, next) => {
     });
 });
 
+app.get('/api/jobs/:id', (req, res, next) => {
+  Thing.findOne({ _id: req.params.id })
+    .then(things => res.status(200).json(things))
+    .catch(error => res.status(404).json({ error }));
+});
+
 app.get('/api/jobs', (req, res, next) => {
   Thing.find()
     .then(things => res.status(200).json(things))
     .catch(error => res.status(400).json({ error }));
 });
+
+app.put('/api/jobs/:id', (req, res, next) => {
+  Thing.updateOne({_id: req.params.id}, {...req.body, _id: req.params.id})
+    .then(() => res.status(200).json({ message: 'Job modifié !' }))
+    .catch(error => res.status(400).json({ error }));
+});
+
+app.delete('/api/jobs/:id', (req, res, next) => {
+  Thing.deleteOne({ _id: req.params.id})
+    .then(() => res.status(200).json({ message: 'Job supprimé !'}))
+    .catch(error => res.status(404).json({ error }));
+})
 
 module.exports = app;
 

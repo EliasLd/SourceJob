@@ -18,6 +18,9 @@ function Nav(){
           <Link to="/">
             <img src={logo} alt="Logo de l'application" className='w-20 h-20'/>
           </Link>
+          <Link to='/jobs'>
+            <a className='py-2 px-4 text-lg bg-blue-600 text-white rounded-lg font-medium ml-8'>Home</a>
+          </Link>
           <ul>
             <Link to="/auth/login">
               <a className="py-2 px-4 text-lg bg-blue-600 text-white rounded-lg font-medium ml-8">Rejoignez nous</a>
