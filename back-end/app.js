@@ -1,6 +1,15 @@
 const express = require('express');
 
+const mongoose = require('mongoose');
+
 const app = express();
+
+mongoose.connect('mongodb+srv://Elias:W4dJeX8jI4xQWeom@sourcejob.fd2djbg.mongodb.net/?retryWrites=true&w=majority&appName=SourceJob',
+{
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => console.log('MongoDB connexion sucess !'))
+  .catch(() => console.log('MongoDB connexion failed'));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
