@@ -11,8 +11,8 @@ export default function AppRouter() {
         <Router>
             <Routes>
                 <Route path="/" element={<Nav />} />
-                <Route path="/auth/login" element={<Login />} />
-                <Route path="/signUp" element={<SignUp />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<SignUp />} />
                 <Route path="/jobs" element={<PlotJob />} />
                 <Route path="/jobs/:id" element={<PlotJobDetails />} />
             </Routes>

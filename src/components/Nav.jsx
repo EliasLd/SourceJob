@@ -22,7 +22,7 @@ function Nav(){
             <a className='py-2 px-4 text-lg bg-blue-600 text-white rounded-lg font-medium ml-8'>Home</a>
           </Link>
           <ul>
-            <Link to="/auth/login">
+            <Link to="/login">
               <a className="py-2 px-4 text-lg bg-blue-600 text-white rounded-lg font-medium ml-8">Rejoignez nous</a>
             </Link>
           </ul>

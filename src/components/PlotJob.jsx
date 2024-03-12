@@ -9,7 +9,13 @@ export default function PlotJob() {
 
     const handleFetchJobs = async () => {
         try {
-            const res = await fetch('http://localhost:3000/api/jobs');
+            const token = localStorage.getItem("token");    // On récupère le token du client pour autoriser la requête
+            console.log(token);
+            const res = await fetch('http://localhost:3000/api/jobs', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
             if (res.ok) {
                 const data = await res.json();
                 setJobsList(data);

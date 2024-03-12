@@ -1,4 +1,5 @@
 const Thing = require('../models/Thing');
+const jwt = require('jsonwebtoken');
 
 exports.createThing = (req, res, next) => {
   delete req.body._id;
