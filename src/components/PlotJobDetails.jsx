@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export default function PlotJobDetails() {
-    const { id } = useParams(); // récupératio  de l'id en fonction de l'url
+    const { id } = useParams(); // récupération  de l'id en fonction de l'url
 
     const [jobDetails, setJobDetails] = useState(null);
 
@@ -33,7 +33,6 @@ export default function PlotJobDetails() {
                     <li>Type de job: {jobDetails.jobType}</li>
                     <li>Durée du job/contrat: {jobDetails.jobDuration}</li>
                     <li>Entreprise: {jobDetails.Company}</li>
-                    {/* Ajoutez d'autres détails selon vos besoins */}
                 </ul>
             ) : (
                 <p>Chargement des détails du job...</p>

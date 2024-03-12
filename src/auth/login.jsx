@@ -24,7 +24,10 @@ export default function Login(){
         try {
             const response = await axios.post('http://localhost:3000/api/auth/login', datas);
             console.log(response.data);
-            navigate('/jobs');
+            const token = response.data.token;
+            localStorage.setItem('token', token);
+            
+            navigate('/api/jobs');
         } catch (error) {
             console.error('Erreur lors de la connexion:', error);
         }
@@ -47,7 +50,7 @@ export default function Login(){
             </form>
             <div>
                     Pas de compte ?
-                    <Link to="/signup">
+                    <Link to="/auth/signup">
                       Créez en un !
                     </Link>
                 </div>

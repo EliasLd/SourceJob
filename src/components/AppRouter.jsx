@@ -4,17 +4,19 @@ import Login from '../auth/login';
 import { Nav } from "./Nav";
 import SignUp from '../auth/signUp';
 import PlotJob from './PlotJob';
-import PlotJobDetails from './PlotJobDetails'; // Importez le composant PlotJobDetails
+import PlotJobDetails from './PlotJobDetails';
+import AddJob from './AddJob';
 
 export default function AppRouter() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Nav />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="/jobs" element={<PlotJob />} />
-                <Route path="/jobs/:id" element={<PlotJobDetails />} />
+                <Route path="/auth/login" element={<Login />} />
+                <Route path="/auth/signup" element={<SignUp />} />
+                <Route path="/api/jobs" element={<PlotJob />} />
+                <Route path="/api/jobs/:id" element={<PlotJobDetails />} />
+                <Route path="/api/jobs/addJob" element={<AddJob />} />
             </Routes>
         </Router>
     );

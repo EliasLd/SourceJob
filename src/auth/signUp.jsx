@@ -23,7 +23,7 @@ export default function SignUp() {
         try {
             const response = await axios.post('http://localhost:3000/api/auth/signup', datas);
             console.log(response.data);
-            navigate('/login');
+            navigate('/auth/login');
         } catch (error) {
             console.error('Erreur lors de la création du compte: ', error);
         }

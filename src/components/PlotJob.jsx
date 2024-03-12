@@ -9,7 +9,7 @@ export default function PlotJob() {
 
     const handleFetchJobs = async () => {
         try {
-            const token = localStorage.getItem("token");    // On récupère le token du client pour autoriser la requête
+            const token = localStorage.getItem('token');    // On récupère le token du client pour autoriser la requête
             console.log(token);
             const res = await fetch('http://localhost:3000/api/jobs', {
                 headers: {
@@ -28,7 +28,7 @@ export default function PlotJob() {
     };
 
     const handleClickJob = (jobId) => {
-        navigate(`/jobs/${jobId}`);
+        navigate(`/api/jobs/${jobId}`);
     };
 
     useEffect(() => {
