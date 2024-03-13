@@ -21,7 +21,7 @@ export default function DeleteJob({ JobId }) {
             console.log('Job supprimé !');
             navigate('/api/jobs');
         } else {
-            console.error('Erreur lors de la suppression des données', error);
+            console.error('Erreur lors de la suppression des données');
         }
     } catch (error) {
         console.error('Erreur de requête', error);
@@ -31,6 +31,14 @@ export default function DeleteJob({ JobId }) {
   }
 
   return (
-    <div>DeleteJob</div>
+    <div>
+        {isLoading ? (
+            <p>...</p>
+        ) : (
+            <button onClick={handleDelete} className="p-2 bg-red-600 rounded-lg text-white">
+                Supprimer
+            </button>
+        )}
+    </div>
   )
 }
