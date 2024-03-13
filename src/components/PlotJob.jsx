@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Logout from "../auth/logout";
 
 export default function PlotJob() {
     const navigate = useNavigate();
@@ -55,6 +56,7 @@ export default function PlotJob() {
                     ))}
                 </ul>
             )}
+            <Logout />
         </div>
     );
 }
