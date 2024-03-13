@@ -6,11 +6,11 @@ export default function PlotJob() {
 
     const [jobsList, setJobsList] = useState([]);
     const [showJobs, setShowJobs] = useState(true);
+    const [error, setError] = useState(null); // Nouvel état pour stocker les erreurs de requête
 
     const handleFetchJobs = async () => {
         try {
             const token = localStorage.getItem('token');    // On récupère le token du client pour autoriser la requête
-            console.log(token);
             const res = await fetch('http://localhost:3000/api/jobs', {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -20,15 +20,16 @@ export default function PlotJob() {
                 const data = await res.json();
                 setJobsList(data);
             } else {
-                console.error('Erreur récupération des données');
+                throw new Error('Erreur récupération des données');
             }
         } catch (error) {
-            console.error("Erreur requête");
+            console.error("Erreur requête:", error);
+            setError(error.message); // Stocker l'erreur dans l'état
         }
     };
 
     const handleClickJob = (jobId) => {
-        navigate(`/api/jobs/${jobId}`);
+        navigate(`/jobs/${jobId}`);
     };
 
     useEffect(() => {
@@ -42,6 +43,8 @@ export default function PlotJob() {
             <button onClick={() => setShowJobs(!showJobs)}>
                 {showJobs ? 'Masquer les jobs' : 'Afficher les jobs'}
             </button>
+
+            {error && <p>Erreur: {error}</p>} {/* Afficher l'erreur si elle existe */}
 
             {showJobs && (
                 <ul>

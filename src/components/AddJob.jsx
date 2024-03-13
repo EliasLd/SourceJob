@@ -19,11 +19,14 @@ export default function JobForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        const token = localStorage.getItem('token')
+
         try {
             const res = await fetch('http://localhost:3000/api/jobs', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(jobDatas)
             });
