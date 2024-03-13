@@ -34,7 +34,7 @@ exports.getOneThing = (req, res, next) => {
 };
 
 exports.getAllThings = (req, res, next) => {
-  Thing.find()
+  Thing.find({ userId: req.auth.userId })
     .then(things => res.status(200).json(things))
     .catch(error => res.status(400).json({ error }));
 };
