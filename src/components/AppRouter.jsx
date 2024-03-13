@@ -15,7 +15,7 @@ export default function AppRouter() {
                 <Route path="/auth/login" element={<Login />} />
                 <Route path="/auth/signup" element={<SignUp />} />
                 <Route path="/api/jobs" element={<PlotJob />} />
-                <Route path="/api/jobs/:id" element={<PlotJobDetails />} />
+                <Route path="/jobs/:id" element={<PlotJobDetails />} />
                 <Route path="/api/jobs/addJob" element={<AddJob />} />
             </Routes>
         </Router>

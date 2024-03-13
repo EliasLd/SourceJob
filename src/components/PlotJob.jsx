@@ -6,7 +6,7 @@ export default function PlotJob() {
 
     const [jobsList, setJobsList] = useState([]);
     const [showJobs, setShowJobs] = useState(true);
-    const [error, setError] = useState(null); // Nouvel état pour stocker les erreurs de requête
+    const [error, setError] = useState(null);
 
     const handleFetchJobs = async () => {
         try {
@@ -24,7 +24,7 @@ export default function PlotJob() {
             }
         } catch (error) {
             console.error("Erreur requête:", error);
-            setError(error.message); // Stocker l'erreur dans l'état
+            setError(error.message); 
         }
     };
 
@@ -44,7 +44,7 @@ export default function PlotJob() {
                 {showJobs ? 'Masquer les jobs' : 'Afficher les jobs'}
             </button>
 
-            {error && <p>Erreur: {error}</p>} {/* Afficher l'erreur si elle existe */}
+            {error && <p>Erreur: {error}</p>} 
 
             {showJobs && (
                 <ul>
