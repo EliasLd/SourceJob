@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Logout from '../auth/logout';
+import { Link } from 'react-router-dom';
 
 export default function PlotJobDetails() {
     const { id } = useParams(); // récupération  de l'id en fonction de l'url
@@ -42,6 +44,11 @@ export default function PlotJobDetails() {
             ) : (
                 <p>Chargement des détails du job...</p>
             )}
+            <div className="flex m-4 gap-3">
+                <Link to={`/api/jobs/edit/${id}`} className="p-2 bg-green-500 rounded-lg" >Modifier</Link>
+                <button className="p-2 bg-red-600 rounded-lg text-white" >Supprimer</button>
+            </div>
+            <Logout />
         </div>
     );
 }
