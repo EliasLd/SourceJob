@@ -5,6 +5,7 @@ const thingSchema = mongoose.Schema({
     jobType: { type: String, required: true },
     jobDuration: {type: String, required: true},
     Company: {type: String, required: true},
+    userId: {type: String, required: true},
 });
 
 module.exports = mongoose.model('Thing', thingSchema);

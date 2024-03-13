@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { jwtDecode } from 'jwt-decode';
 
 export default function JobForm() {
 
@@ -16,10 +17,22 @@ export default function JobForm() {
         }));
     };
 
+    const getUserId = (token) => {
+        try {
+            const decodedToken = jwtDecode(token);
+            const userId = decodedToken.userId;
+            return userId;
+        } catch (error) {
+            console.error('Erreur de décodage du token', error);
+            return null;
+        }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const token = localStorage.getItem('token')
+        const userId = getUserId(token);
 
         try {
             const res = await fetch('http://localhost:3000/api/jobs', {
@@ -28,7 +41,10 @@ export default function JobForm() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify(jobDatas)
+                body: JSON.stringify({
+                    ...jobDatas,
+                    userId: userId
+                })
             });
 
             if(res.ok) {
