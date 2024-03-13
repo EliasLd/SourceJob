@@ -29,7 +29,7 @@ export default function PlotJob() {
     };
 
     const handleClickJob = (jobId) => {
-        navigate(`/jobs/${jobId}`);
+        navigate(`/api/jobs/${jobId}`);
     };
 
     useEffect(() => {
