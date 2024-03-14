@@ -1,36 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
+import ux from '../assets/ux-abstract.png'
 
-function Catchy(){
-    return(
-        <div className='m-10'>
-            <h1 className='text-2xl'>Une meilleur gestion de vos candidature à portée de mains</h1>
-            <h3 className='mt-2'>Optez pour SourceJob</h3>
-        </div>
+function Nav() {
+  return (
+    <div>
+        <nav className="flex justify-end items-center py-5 mx-4">
+        <Link to="/"> 
+          
+        </Link>
+        <Link to='/about'>
+          <a className='py-2 px-4 text-lg bg-blue-500 text-white rounded-full font-medium ml-3'>A propos</a>
+        </Link>
+        <Link to="/auth/login">
+          <a className="py-2 px-4 text-lg bg-blue-500 text-white rounded-full font-medium ml-3">Rejoignez nous</a>
+        </Link>
+    </nav>
+    </div>
     );
+}
+
+function Landing(){
+  return(
+    <div className='m-20 flex flex-row justify-between'>
+      <div className='my-20 mx-40'>
+        <h1 className='p-4 text-6xl text-slate-700 font-sans font-bold'>SourceJob</h1>
+      </div>
+      <div className='flex flex-row-reverse'>
+        <img src={ux} className='mx-20'/>
+      </div>
+    </div>
+  );
 }
 
 function FirstPage(){
     return(
       <div>
-        <nav className="flex flex-wrap justify-between items-center py-10 mx-14">
-          <Link to="/">
-            <img src={logo} alt="Logo de l'application" className='w-20 h-20'/>
-          </Link>
-          <Link to="/api/jobs/addJob">
-            <a className='py-2 px-4 text-lg bg-blue-600 text-white rounded-lg font-medium ml-8'>Ajouter un job</a>
-          </Link>
-          <Link to='/api/jobs'>
-            <a className='py-2 px-4 text-lg bg-blue-600 text-white rounded-lg font-medium ml-8'>Home</a>
-          </Link>
-          <Link to="/auth/login">
-              <a className="py-2 px-4 text-lg bg-blue-600 text-white rounded-lg font-medium ml-8">Rejoignez nous</a>
-          </Link>
-        </nav>
-        <Catchy />
+        <Nav />
+        <Landing />
+
       </div>
     );
 }
 
-export { FirstPage, Catchy };
+export { FirstPage };
