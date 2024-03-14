@@ -11,7 +11,7 @@ function Catchy(){
     );
 }
 
-function Nav(){
+function FirstPage(){
     return(
       <div>
         <nav className="flex flex-wrap justify-between items-center py-10 mx-14">
@@ -33,4 +33,4 @@ function Nav(){
     );
 }
 
-export { Nav, Catchy };
+export { FirstPage, Catchy };
