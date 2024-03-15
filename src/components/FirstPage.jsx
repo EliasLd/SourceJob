@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import search from '../assets/search-icon.svg';
+import pending from '../assets/pending-icon.svg';
+import verified from '../assets/verified-icon.svg';
+
 function Nav() {
   return (
       <nav className="sticky top-0 z-10">
@@ -52,6 +56,11 @@ function Landing(){
             </div>
           </div>
         </div>
+      </div>
+      <div className='flex flex-row p-4 mt-20 items-center justify-center gap-x-20'>
+        <img src={pending} />
+        <img src={search} />
+        <img src={verified} />
       </div>
     </div>
   );
