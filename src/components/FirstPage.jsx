@@ -36,21 +36,33 @@ function Landing() {
           <div className='p-10 bg-gray-700 rounded-lg flex flex-col'>
             <div className='p-2'>
               <p className='text-white text-5xl font-sans font-bold'>Conçu par et <br/> pour les étudiants</p>
-              <p className='text-slate-300 text-md py-4'>La gestion de vos candidatures n'a jamais <br/> été aussi simple</p>
+              <p className='font-inter text-slate-300 text-md py-4'>La gestion de vos candidatures n'a jamais <br/> été aussi simple</p>
             </div>
-            <div className='mt-40'>
+            <div className='mt-40 flex flex-row'>
               <div className='mt-18 flex flex-col items-start'>
-                <p className='text-slate-300 text-md py-4'>La recherche de stage ou d'alternance, <br/>
+                <p className='font-inter text-slate-300 text-md py-4'>La recherche de stage ou d'alternance, <br/>
                 c'est difficile et on le sait.<br/> 
                 SourceJob est là pour vous aider à <br/>mieux gérer vos candidatures.</p>
                 <Link to='/about'>
-                  <div className='rounded-full bg-white flex flex-row items-center justify-start p-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110'>
+                  <div className='mt-2 p-2 rounded-full bg-white flex flex-row items-center justify-start transition ease-in-out duration-500 hover: hover:scale-110'>
                     <div className='bg-slate-200 rounded-full'>
                       <img src={arrowOut} className='p-1 mx-3 w-8 h-8' />
                     </div>
                     <p className='text-black text-md mx-3 font-sans font-bold'>Plus de détails</p>
                   </div>
                 </Link>
+              </div>
+              <div className='flex flex-col mt-20 ml-40'>
+                  <p className='font-inter text-slate-300 text-md py-3'>Commencez dès-maintenant</p>
+                  <div className='flex flex-row gap-x-5 item-center'>
+                    <Link to='/auth/signup' className=' mt-2  rounded-full border border-white
+                     hover:bg-white transition ease-in-out duration-500 '>
+                      <p className='text-white text-md text-sans font-semibold py-2 px-4 hover:text-black transition ease-in-out duration-500'>S'inscrire</p>
+                    </Link>
+                    <Link to='/auth/login' className=' mt-2 rounded-full border border-white bg-white'>
+                      <p className='text-black text-md text-sans font-semibold py-2 px-4'>Se connecter</p> 
+                    </Link>
+                  </div>
               </div>
             </div>
           </div>
