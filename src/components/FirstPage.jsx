@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import search from '../assets/search-icon.svg';
 import pending from '../assets/pending-icon.svg';
 import verified from '../assets/verified-icon.svg';
+import arrowOut from '../assets/arrow-out.svg';
 
 function Nav() {
   return (
@@ -27,40 +28,33 @@ function Nav() {
     );
 }
 
-function Landing(){
+function Landing() {
   return(
-    <div className='mt-20 flex flex-col'>  {/* Presentation container */}
-      <div className='flex flex-col gap-y-6 items-center justify-center'>  {/* title container */}
-        <h1 className='font-sans font-bold text-white text-6xl'>SourceJob</h1>
-        <p className='text-2xl text-slate-400'>Gérer vos candidatures avec simplicité</p>
-      </div>
-      <div className='flex flex-col mx-60'>  { /* Description container */ }
-        <div className='m-4 bg-zinc-750 rounded-lg shadow-2xl mx-60'> {/* First Descritpion container */}
-          <p className='text-slate-100 text-xl text-justify p-6'>
-            Bienvenue sur SourceJob, une application permettant de gérer toutes ses candidatures 
-            de manière simple et efficace. Nous savons qu'une recherche d'alternance ou de stage peut 
-            s'avérer compliquée, stressante et quelque peu désorganisée en raison du grand nombre de sites 
-            permettant de candidater à des offres. 
-            Avec SourceJob, vous pouvez gérer vos candidatures au fil du temps, modifier leurs status
-            ainsi qu'ajouter des détails et documents supplémentaires.
-          </p>
-          <div className='flex justify-center'>
-            <p className='text-slate-100 text-xl text-justify p-6'>N'hésitez pas, rejoignez nous !</p>
-            <div className='flex flex-row items-center justify-end' >
-              <Link to='/auth/signup' className='py-2 px-4 text-lg border transition duration-200 ease-out hover:ease-in border-blue-700 bg-zinc-750 hover:bg-blue-700 text-white rounded-full font-medium ml-3'>
-                Créer un compte
-              </Link>
-              <Link to='/auth/login' className='py-2 px-4 text-lg bg-blue-700 text-white rounded-full font-medium ml-3'>
-                Se connecter
-              </Link>
+    <div className='mt-10 mx-20'>
+      <div className='p-2 mx-20'>
+        <div className='p-5 mx-20 bg-slate-100 rounded-lg flex flex-row'>
+          <div className='p-10 bg-gray-700 rounded-lg flex flex-col'>
+            <div className='p-2'>
+              <p className='text-white text-5xl font-sans font-bold'>Conçu par et <br/> pour les étudiants</p>
+              <p className='text-slate-300 text-md py-4'>La gestion de vos candidatures n'a jamais <br/> été aussi simple</p>
+            </div>
+            <div className='mt-40'>
+              <div className='mt-18 flex flex-col items-start'>
+                <p className='text-slate-300 text-md py-4'>La recherche de stage ou d'alternance, <br/>
+                c'est difficile et on le sait.<br/> 
+                SourceJob est là pour vous aider à <br/>mieux gérer vos candidatures.</p>
+                <Link to='/about'>
+                  <div className='rounded-full bg-white flex flex-row items-center justify-start p-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110'>
+                    <div className='bg-slate-200 rounded-full'>
+                      <img src={arrowOut} className='p-1 mx-3 w-8 h-8' />
+                    </div>
+                    <p className='text-black text-md mx-3 font-sans font-bold'>Plus de détails</p>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className='flex flex-row p-4 mt-20 items-center justify-center gap-x-20'>
-        <img src={pending} />
-        <img src={search} />
-        <img src={verified} />
       </div>
     </div>
   );
