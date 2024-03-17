@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Login from '../auth/login';
-import { FirstPage } from './FirstPage';
+import { LandingPage } from "./Landing";
 import SignUp from '../auth/signUp';
 import PlotJob from './PlotJob';
 import PlotJobDetails from './PlotJobDetails';
@@ -13,7 +13,7 @@ export default function AppRouter() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<FirstPage />} />
+                <Route path="/" element={<LandingPage />} />
                 <Route path="/auth/login" element={<Login />} />
                 <Route path="/auth/signup" element={<SignUp />} />
                 <Route path="/api/jobs" element={<PlotJob />} />

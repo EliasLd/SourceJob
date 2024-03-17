@@ -10,6 +10,11 @@ module.exports = {
         'inter': ['Inter', 'sans-serif'],
       }
     },
+    screens: {
+      'md': '1460px',
+      'sm': '865px',
+      'xs': '705px',
+    }
   },
   plugins: [],
 }
