@@ -34,32 +34,29 @@ export default function Login(){
     };
 
     return(
-        <div className='shadow-xl  m-40 p-10 text-gray-700 rounded-lg w-full max-w-xl'>
-            <h2 className='text-3xl font-medium'>Rejoignez nous aujourd'hui !</h2>
-            <div className='py-4'>
-                <h3 className='py-4 font-small'>Connectez vous ou créez un compte</h3>
-            </div>
-            <form onSubmit={handleSubmit}>
-                <input type='text' name='email' value={datas.email} onChange={handleChange} placeholder='Email...' 
-                 className='m-5 p-4 flex flex-col bg-slate-100 rounded-lg'/>
-                <input type='text' name='password' value={datas.password} onChange={handleChange} placeholder='Mot de passe...' 
-                 className='m-5 p-4 flex flex-col bg-slate-100 rounded-lg'/>
-                <div className='flex justify-start'>
-                    <button className='m-5 p-2 text-white bg-blue-600 rounded-lg'>Se connecter</button>
+        <div className="bg-sky bg-no-repeat bg-cover bg-center bg-fixed w-screen h-screen relative">
+            <div className="absolute inset-0 flex justify-center items-center">
+                <div className=' backdrop-blur-3xl border border-slate-400  rounded-xl px-5 xs:px-16 py-5'>
+                    <h2 className='p-4 text-3xl text-white font-sans font-bold'>Rejoignez nous <br/>    aujourd'hui !</h2>
+                    <div className='py-2'>
+                        <h3 className='text-slate-200 px-5 text-sm font-inter font-semibold'>Connectez vous ou créez un compte</h3>
+                    </div>
+                    <div className='flex flex-col justify-center'>
+                        <form onSubmit={handleSubmit}>
+                            <input type='text' name='email' value={datas.email} onChange={handleChange} placeholder='Email...' 
+                             className='m-5 p-3 flex flex-col w-60 xs:w-80 bg-slate-300 rounded-2xl transition ease-in-out duration-300 focus:scale-110 focus:bg-white'/>
+                            <input type='password' name='password' value={datas.password} onChange={handleChange} placeholder='Mot de passe...' 
+                             className='m-5 p-3 flex flex-col w-60 xs:w-80 bg-slate-300 rounded-2xl transition ease-in-out duration-300 focus:scale-110 focus:bg-white'/>
+                            <div className='flex justify-center'>
+                                <button className='m-5 p-2 px-10 shadow-xl text-white bg-blue-600 rounded-lg transition ease-in-out duration-300 hover: hover:scale-110'>Se connecter</button>
+                            </div>
+                        </form>
+                        <div className='flex flex-row items-center justify-center'>
+                            <p className='text-slate-200 px-5 text-sm font-inter font-semibold'>Pas de compte ?</p>
+                            <Link to='/auth/signup' className='text-blue-500 font-inter font-semibold'>Inscrivez-vous</Link>
+                        </div>
+                    </div>
                 </div>
-            </form>
-            <div>
-                    Pas de compte ?
-                    <Link to="/auth/signup">
-                      Créez en un !
-                    </Link>
-                </div>
-            <div className='rounded-b border-gray-500'>
-            </div>
-            <div className=''>
-                <button className=' text-white bg-gray-700 p-4 font-medium rounded-lg flex gap-2'>
-                    <FcGoogle className='text-3xl'/>Connectez vous avec Google
-                </button>
             </div>
         </div>
     );
