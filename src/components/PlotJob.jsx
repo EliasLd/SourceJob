@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Logout from "../auth/logout";
+import Navbar from "./Navbar";
 
 export default function PlotJob() {
     const navigate = useNavigate();
@@ -41,6 +42,8 @@ export default function PlotJob() {
 
     return (
         <div>
+            <Navbar/>
+        <div>
             <button onClick={() => setShowJobs(!showJobs)}>
                 {showJobs ? 'Masquer les jobs' : 'Afficher les jobs'}
             </button>
@@ -56,7 +59,9 @@ export default function PlotJob() {
                     ))}
                 </ul>
             )}
-            <Logout />
+            
+        </div>
         </div>
     );
 }
+
