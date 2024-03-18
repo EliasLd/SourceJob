@@ -41,7 +41,7 @@ export default function SignUp() {
                             <input type="text" name="email" value={datas.email} onChange={handleChange} placeholder='Email...' className='m-5 p-3 flex flex-col w-60 xs:w-80 bg-slate-300 rounded-2xl transition ease-in-out duration-300 focus:scale-110 focus:bg-white'/>
                             <input type="password" name="password" value={datas.password} onChange={handleChange} placeholder='Mot de passe...' className='m-5 p-3 flex flex-col w-60 xs:w-80 bg-slate-300 rounded-2xl transition ease-in-out duration-300 focus:scale-110 focus:bg-white'/>
                             <div className='flex justify-center'>
-                                <button className='m-5 p-2 px-10 shadow-xl text-white bg-blue-600 rounded-lg transition ease-in-out duration-300 hover: hover:scale-110'>S'inscrire</button>
+                                <button className='m-5 p-2 px-10 shadow-xl text-white bg-blue-600 rounded-lg transition ease-in-out duration-300 hover:scale-110'>S'inscrire</button>
                             </div>
                         </form>
                     </div>

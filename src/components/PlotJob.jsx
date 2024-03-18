@@ -43,10 +43,10 @@ export default function PlotJob() {
     return (
         <div>
             <Navbar/>
-            <div>
-                <ul>
+            <div className='flex justify-center'>
+                <ul className='mt-16 flex flex-col gap-y-4 flex-wrap font-inter font-semibold '>
                     {jobsList.map((job) => (
-                        <li key={job._id} onClick={() => handleClickJob(job._id)}>
+                        <li key={job._id} onClick={() => handleClickJob(job._id)} className='rounded-2xl bg-slate-200 p-4 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110'>
                             {job.jobName} - {job.jobType} - {job.jobDuration} - {job.Company}
                         </li>
                     ))}

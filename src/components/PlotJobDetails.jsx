@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Logout from '../auth/logout';
 import { Link } from 'react-router-dom';
 import DeleteJob from "./DeleteJob";
+import Navbar from "./Navbar";
 
 export default function PlotJobDetails() {
     const { id } = useParams(); // récupération  de l'id en fonction de l'url
@@ -34,6 +35,7 @@ export default function PlotJobDetails() {
 
     return (
         <div>
+            <Navbar />
             <h2>Détails du job</h2>
             {jobDetails ? (
                 <ul>
