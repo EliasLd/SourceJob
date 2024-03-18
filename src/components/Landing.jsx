@@ -50,7 +50,7 @@ function Landing(){
             <Link to='/auth'>
               <div className='bg-white rounded-3xl mt-10 p-2 flex flex-row transition ease-in-out duration-500 hover: hover:scale-105'>
                 <div className='bg-slate-200 rounded-full'>
-                    <img src={arrowOut} className='p-1 mx-3 w-8 h-8' />
+                    <img src={arrowOut} alt="image illustrant le partage" className='p-1 mx-3 w-8 h-8' />
                 </div>
                 <div className='flex items-center'>
                   <p className='text-black text-md mx-3 font-sans font-bold'>À la recherche de plus de détails ?</p>
@@ -73,24 +73,24 @@ function Landing(){
           <div className='col-span-1 row-span-2 xs:col-start-1 xs:row-span-3 p-4 bg-green-400 rounded-3xl grid gap-5'>
             <p className='p-1 mr-20 font-sans font-semibold text-black text-3xl md:text-lg'>Enregistrez vos <br/> candidatures</p>  
             <p className='font-inter text-slate-900 text-xl md:text-base'>pour avoir une<br/>vue globale et plus claire.</p>
-            <img src={eye} className='w-16 h-16 md:w-10 md:h-10' />
+            <img src={eye} alt="image oeil" className='w-16 h-16 md:w-10 md:h-10' />
           </div>
           <div className='col-span-1 row-span-2 xs:col-start-2 xs:row-span-3 p-4 bg-blue-400 rounded-3xl grid gap-5'>
             <p className='p-1 mr-10 font-sans font-semibold text-black text-3xl md:text-lg'>Gardez leurs status <br/> à jour</p>
             <p className='font-inter text-slate-900 text-xl md:text-base'>et restez dans le moment<br/>présent, c'est important.</p>
-            <img src={time} className='w-16 h-16 md:w-10 md:h-10' />
+            <img src={time} alt="horloge qui illustre le temps" className='w-16 h-16 md:w-10 md:h-10' />
           </div>
           <div className='col-span-1 row-span-2 xs:col-span-1 xs:row-span-3 p-4 bg-green-800 rounded-3xl grid gap-5'>
             <p className='p-1 mr-20 font-sans font-semibold text-white text-3xl md:text-lg'>Planifiez vos<br/>entretiens</p>
             <p className='font-inter text-white text-xl md:text-base'>et n'oubliez pas de rester<br/> vous même.</p>
-            <img src={calendar} className='w-16 h-16 md:w-10 md:h-10' />
+            <img src={calendar} alt="image illsutrant un calendrier" className='w-16 h-16 md:w-10 md:h-10' />
           </div>
           <div className='col-span-1 row-span-2 xs:col-start-2 xs:row-span-3 p-4 bg-red-200 rounded-3xl grid gap-5'>
             <p className='p-1 mr-20 font-sans font-semibold text-white text-3xl md:text-lg'>Filtrez vos <br/> candidatures</p>
             <p className='font-inter text-white text-xl md:text-base'>par thème, date, durée,<br/>préférences...</p>
             <div className='p-1  flex rounded-full'>
               <div className=' rounded-full'>
-                <img src={search} className='w-16 h-16 md:w-10 md-h-10' />
+                <img src={search} alt="image illustrant la recherche" className='w-16 h-16 md:w-10 md-h-10' />
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@ function Landing(){
               <p className='font-inter font-semibold text-2xl xs:text-3xl md:text-xl ml-2'>Une question ? Contactez nous</p>
             </div>
             <div className='col-span-1 row-span-1 flex items-center justify-center mx-0 xs:mx-6 rounded-3xl bg-yellow-500 transition ease-in-out duration-500 hover: hover:scale-110'>
-              <img src={message} className='w-16 h-16 md:w-10 md:h-10 mx-3'/>
+              <img src={message} alt="image d'neveloppe illustrant le message" className='w-16 h-16 md:w-10 md:h-10 mx-3'/>
             </div>
           </div>
         </div>  
