@@ -47,7 +47,7 @@ function Landing(){
                 c'est difficile et on le sait.<br/> 
                 SourceJob est là pour vous aider à <br/>mieux gérer vos candidatures.
             </p>
-            <Link to='/auth'>
+            <Link to='/about'>
               <div className='bg-white rounded-3xl mt-10 p-2 flex flex-row transition ease-in-out duration-500 hover: hover:scale-105'>
                 <div className='bg-slate-200 rounded-full'>
                     <img src={arrowOut} alt="image illustrant le partage" className='p-1 mx-3 w-8 h-8' />

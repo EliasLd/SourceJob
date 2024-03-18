@@ -43,24 +43,15 @@ export default function PlotJob() {
     return (
         <div>
             <Navbar/>
-        <div>
-            <button onClick={() => setShowJobs(!showJobs)}>
-                {showJobs ? 'Masquer les jobs' : 'Afficher les jobs'}
-            </button>
-
-            {error && <p>Erreur: {error}</p>} 
-
-            {showJobs && (
+            <div>
                 <ul>
                     {jobsList.map((job) => (
                         <li key={job._id} onClick={() => handleClickJob(job._id)}>
                             {job.jobName} - {job.jobType} - {job.jobDuration} - {job.Company}
                         </li>
                     ))}
-                </ul>
-            )}
-            
-        </div>
+                </ul> 
+            </div>
         </div>
     );
 }
