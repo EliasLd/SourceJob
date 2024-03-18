@@ -10,11 +10,14 @@ module.exports = {
         'inter': ['Inter', 'sans-serif'],
       }
     },
-    screens: {
+      screens: {
       'md': '1460px',
       'sm': '865px',
       'xs': '705px',
-    }
+    },
+      backgroundImage: {
+        'sky': "url('./assets/sky-bg.png')"
+      }
   },
   plugins: [],
 }
