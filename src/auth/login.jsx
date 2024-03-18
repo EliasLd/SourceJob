@@ -53,7 +53,7 @@ export default function Login(){
                         </form>
                         <div className='flex flex-row items-center justify-center'>
                             <p className='text-slate-200 px-5 text-sm font-inter font-semibold'>Pas de compte ?</p>
-                            <Link to='/auth/signup' className='text-blue-500 font-inter font-semibold'>Inscrivez-vous</Link>
+                            <Link to='/auth/signup' className='text-blue-500 font-inter font-semibold underline'>Inscrivez-vous</Link>
                         </div>
                     </div>
                 </div>
