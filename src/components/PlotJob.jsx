@@ -29,7 +29,7 @@ export default function PlotJob() {
         } catch (error) {
             console.error("Erreur requête:", error);
             setError(error.message); 
-        }
+          }
     };
 
     const handleClickJob = (jobId) => {
@@ -46,15 +46,17 @@ export default function PlotJob() {
         <div>
             <Navbar/>
             <div className='flex justify-center'>
-                <ul className='mt-16 p-2 rounded-2xl flex flex-col gap-y-4 flex-wrap font-inter font-semibold transition ease-in-out duration-500 hover:bg-slate-300'>
+                <ul className='mt-16 p-2 rounded-2xl flex flex-col gap-y-4 flex-wrap font-inter font-semibold'>
                     {jobsList.map((job) => (
-                        <li key={job._id} className='flex items-center flex-row rounded-2xl bg-slate-200 p-3  xr:mx-1'>
-                            {job.jobName} - {job.jobType} - {job.jobDuration} - {job.Company} - 
+                        <div className='transition ease-in-out duration-500 hover:bg-slate-300 p-1 rounded-2xl'>
+                            <li key={job._id} className='flex items-center flex-row rounded-2xl bg-slate-200 p-3  xr:mx-1'>
+                            {job.jobName} - {job.jobType} - {job.jobDuration} - {job.Company}
                             {job.link !== '' && <Link to={job.link} className=' mx-2 p-1 transition ease-in-out duration-300 hover:rotate-180'>
                                 <img src={goLink} alt='image décrivant un lien url' className="w-12 h-12 xr:w-7 xr:h-7"/>
                                 </Link>}
-                            <img src={info} onClick={() => handleClickJob(job._id)} className='w-8 h-8 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110' />
-                        </li>
+                            <img src={info} onClick={() => handleClickJob(job._id)} className='ml-2 w-8 h-8 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110' />
+                            </li>
+                        </div>
                     ))}
                 </ul> 
             </div>
