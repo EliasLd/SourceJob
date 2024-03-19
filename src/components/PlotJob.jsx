@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Media from 'react-media';
 import Logout from "../auth/logout";
 import Navbar from "./Navbar";
 import MobileNavbar from "./MobileNavbar";
@@ -71,7 +72,11 @@ export default function PlotJob() {
 
  return (
     <div>
-        <MobileNavbar/>
+        <Media query='(max-width: 475px)'>
+            {matches =>
+                matches ? <MobileNavbar /> : <Navbar />
+            }
+        </Media>
         <div className='flex justify-center'>
             <ul className='mt-16 p-2 rounded-2xl grid grid-cols-1 xs:grid-cols-2 gap-x-2 gap-y-2 flex-wrap font-inter font-semibold'>
                 {jobsList.map((job) => (
