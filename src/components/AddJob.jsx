@@ -8,7 +8,8 @@ export default function JobForm() {
         jobName: '',
         jobType: '',
         jobDuration: '',
-        Company: ''
+        Company: '',
+        link: '',
     });
 
     const handleChange = (e) => {
@@ -54,7 +55,8 @@ export default function JobForm() {
                     jobName: '',
                     jobType: '',
                     jobDuration: '',
-                    Company: ''
+                    Company: '',
+                    link: '',
                 });
             } else {
                 console.error('Erreur envoi des données');
@@ -70,7 +72,7 @@ export default function JobForm() {
             <div className='absolute inset-0  flex flex-col justify-center items-center mt-16'>
                 <div className='rounded-lg flex flex-col justify-center bg-white shadow-xl p-1 xxs:p-4'>
                     <p className='font-sans font-bold text-3xl p-6'>Ajouter une nouvelle <br/> candidature</p>
-                    <form onSubmit={handleSubmit} className='flex flex-col justify-center p-5 rounded-3xl '>
+                    <form onSubmit={handleSubmit} className='flex flex-col justify-center p-2 xxs:p-5 rounded-3xl '>
                         <label>
                             <p className='font-inter font-semibold  text-xl'>Nom du job</p> 
                             <input
@@ -108,6 +110,16 @@ export default function JobForm() {
                                 name="Company"
                                 value={jobDatas.Company}
                                 onChange={handleChange} 
+                                className='m-5 p-2 flex flex-col w-60 xxs:w-80 rounded-2xl bg-slate-100 transition ease-in-out duration-300 focus:scale-110 focus:bg-white'
+                            />
+                        </label>
+                        <label>
+                            <p className='font-inter font-semibold  text-xl'>URL</p> 
+                            <input
+                                type="text"
+                                name="link"
+                                value={jobDatas.link}
+                                onChange={handleChange}
                                 className='m-5 p-2 flex flex-col w-60 xxs:w-80 rounded-2xl bg-slate-100 transition ease-in-out duration-300 focus:scale-110 focus:bg-white'
                             />
                         </label>

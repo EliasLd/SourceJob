@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logout from "../auth/logout";
 import Navbar from "./Navbar";
+import info from '../assets/info.svg';
+import goLink from '../assets/go-link.svg'
 
 export default function PlotJob() {
     const navigate = useNavigate();
@@ -44,10 +46,14 @@ export default function PlotJob() {
         <div>
             <Navbar/>
             <div className='flex justify-center'>
-                <ul className='mt-16 flex flex-col gap-y-4 flex-wrap font-inter font-semibold '>
+                <ul className='mt-16 p-2 rounded-2xl flex flex-col gap-y-4 flex-wrap font-inter font-semibold transition ease-in-out duration-300 hover:bg-slate-300'>
                     {jobsList.map((job) => (
-                        <li key={job._id} onClick={() => handleClickJob(job._id)} className='rounded-2xl bg-slate-200 p-4 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110'>
-                            {job.jobName} - {job.jobType} - {job.jobDuration} - {job.Company}
+                        <li key={job._id} className='flex items-center flex-row rounded-2xl bg-slate-200 p-3  xr:mx-1'>
+                            {job.jobName} - {job.jobType} - {job.jobDuration} - {job.Company} - 
+                            {job.link !== '' && <Link to={job.link} className=' mx-2 p-1 transition ease-in-out duration-300 hover:rotate-180'>
+                                <img src={goLink} alt='image décrivant un lien url' className="w-7 h-7"/>
+                                </Link>}
+                            <img src={info} onClick={() => handleClickJob(job._id)} className='w-8 h-8 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110' />
                         </li>
                     ))}
                 </ul> 
