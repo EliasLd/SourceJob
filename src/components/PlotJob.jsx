@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logout from "../auth/logout";
 import Navbar from "./Navbar";
+import MobileNavbar from "./MobileNavbar";
 import info from '../assets/info.svg';
 import goLink from '../assets/go-link.svg';
 import filledHearth from '../assets/filledHeart.svg';
@@ -47,7 +48,7 @@ export default function PlotJob() {
                 return job;
             });
             setJobsList(updatedJobsList);
-            
+
             const token = localStorage.getItem('token');
             await fetch(`http://localhost:3000/api/jobs/${jobId}/favorite`, {
                 method: 'PUT',
@@ -70,7 +71,7 @@ export default function PlotJob() {
 
  return (
     <div>
-        <Navbar/>
+        <MobileNavbar/>
         <div className='flex justify-center'>
             <ul className='mt-16 p-2 rounded-2xl grid grid-cols-1 xs:grid-cols-2 gap-x-2 gap-y-2 flex-wrap font-inter font-semibold'>
                 {jobsList.map((job) => (
@@ -88,7 +89,7 @@ export default function PlotJob() {
                                         </Link>
                                         }
                                     <img src={info} onClick={() => handleClickJob(job._id)} className='ml-2 w-8 h-8 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110' />
-                                    <img src={job.fav ? filledHearth : emptyHearth} onClick={() => toggleFavorite(job._id)} className='w-8 h-8 ml-2 cursor-pointer' />
+                                    <img src={job.fav ? filledHearth : emptyHearth} onClick={() => toggleFavorite(job._id)} className='w-8 h-8 ml-2 cursor-pointer transition ease-in-out duration-300 hover:scale-75' />
                                 </div>
                             </div>
                         </div>
