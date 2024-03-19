@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { jwtDecode } from 'jwt-decode';
 import Navbar from "./Navbar";
+import MobileNavbar from "./MobileNavbar";
 import { useNavigate } from 'react-router-dom';
+import Media from 'react-media';
 
 export default function JobForm() {
     const navigate = useNavigate();
@@ -72,7 +74,11 @@ export default function JobForm() {
 
     return(
         <div>
-            <Navbar />
+            <Media query='(max-width: 475px)'>
+            {matches =>
+                matches ? <MobileNavbar /> : <Navbar />
+            }
+            </Media>
             <div className='absolute inset-0  flex flex-col justify-center items-center mt-16'>
                 <div className='rounded-lg flex justify-center flex-col mt-16 bg-white shadow-xl p-1 xxs:p-4'>
                     <p className='font-sans font-bold text-3xl p-6'>Ajouter une nouvelle        candidature</p>

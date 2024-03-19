@@ -23,9 +23,9 @@ export default function MobileNavbar() {
                     {opened && (
                         <div className="absolute top-full left-1/2 transform w-full -translate-x-1/2 bg-white border border-slate-200 p-2">
                             <ul className='flex flex-row justify-center gap-x-8'>
-                                <li><Link to="/link1">Jobs </Link></li>
-                                <li><Link to="/link2">Ajouter </Link></li>
-                                <li><Link to="/link3">Profil </Link></li>
+                                <li><Link to="/api/jobs">Jobs </Link></li>
+                                <li><Link to="/api/jobs/addJob">Ajouter </Link></li>
+                                <li><Link to="/api/profile">Profil </Link></li>
                             </ul>
                         </div>
                     )}
