@@ -3,7 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import Logout from "../auth/logout";
 import Navbar from "./Navbar";
 import info from '../assets/info.svg';
-import goLink from '../assets/go-link.svg'
+import goLink from '../assets/go-link.svg';
+import filledHearth from '../assets/filledHeart.svg';
+import emptyHearth from '../assets/emptyHeart.svg';
 
 export default function PlotJob() {
     const navigate = useNavigate();
@@ -36,31 +38,66 @@ export default function PlotJob() {
         navigate(`/api/jobs/${jobId}`);
     };
 
+    const toggleFavorite = async (jobId) => {
+        try {
+            const updatedJobsList = jobsList.map(job => {
+                if (job._id === jobId) {
+                    return { ...job, fav: !job.fav };
+                }
+                return job;
+            });
+            setJobsList(updatedJobsList);
+            
+            const token = localStorage.getItem('token');
+            await fetch(`http://localhost:3000/api/jobs/${jobId}/favorite`, {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ fav: updatedJobsList.find(job => job._id === jobId).fav })
+            });
+        } catch (error) {
+            console.error('Erreur lors de la mise à jour du statut favori:', error);
+        }
+    };
+
     useEffect(() => {
         if (showJobs) {
             handleFetchJobs();
         }
     }, [showJobs]);
 
-    return (
-        <div>
-            <Navbar/>
-            <div className='flex justify-center'>
-                <ul className='mt-16 p-2 rounded-2xl flex flex-col gap-y-4 flex-wrap font-inter font-semibold'>
-                    {jobsList.map((job) => (
-                        <div className='transition ease-in-out duration-500 hover:bg-slate-300 p-1 rounded-2xl'>
-                            <li key={job._id} className='flex items-center flex-row rounded-2xl bg-slate-200 p-3  xr:mx-1'>
-                            {job.jobName} - {job.jobType} - {job.jobDuration} - {job.Company}
-                            {job.link !== '' && <Link to={job.link} className=' mx-2 p-1 transition ease-in-out duration-300 hover:rotate-180'>
-                                <img src={goLink} alt='image décrivant un lien url' className="w-12 h-12 xr:w-7 xr:h-7"/>
-                                </Link>}
-                            <img src={info} onClick={() => handleClickJob(job._id)} className='ml-2 w-8 h-8 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110' />
-                            </li>
+ return (
+    <div>
+        <Navbar/>
+        <div className='flex justify-center'>
+            <ul className='mt-16 p-2 rounded-2xl grid grid-cols-1 xs:grid-cols-2 gap-x-2 gap-y-2 flex-wrap font-inter font-semibold'>
+                {jobsList.map((job) => (
+                    <div className='flex flex-row relative'>
+                        <div className='transition ease-in-out duration-500 hover:bg-slate-300 p-1 rounded-2xl w-full'>
+                            <div className='flex justify-center flex-col rounded-2xl bg-slate-200 p-3'>
+                                <li key={`${job.jobName}-${job._id}`} className='ml-10 truncate'> {job.jobName} </li>
+                                <li key={`${job.jobType}-${job._id}`} className='ml-10 truncate'> {job.jobType} </li>
+                                <li key={`${job.jobDuration}-${job._id}`} className='ml-10 truncate'> {job.jobDuration} </li>
+                                <li key={`${job.Company}-${job._id}`} className='ml-10 truncate'> {job.Company} </li>
+                                <div className='flex flex-row ml-10 xr:ml-0 xr:absolute right-5 bottom-5'>
+                                        {job.link !== '' && 
+                                        <Link to={job.link}>
+                                            <img src={goLink} alt='image décrivant un lien url' className="w-8 h-8 transition ease-in-out duration-300 hover:rotate-180"/>
+                                        </Link>
+                                        }
+                                    <img src={info} onClick={() => handleClickJob(job._id)} className='ml-2 w-8 h-8 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110' />
+                                    <img src={job.fav ? filledHearth : emptyHearth} onClick={() => toggleFavorite(job._id)} className='w-8 h-8 ml-2 cursor-pointer' />
+                                </div>
+                            </div>
                         </div>
-                    ))}
-                </ul> 
-            </div>
+                    </div>
+                ))}
+            </ul> 
         </div>
-    );
+    </div>
+);
+
 }
 

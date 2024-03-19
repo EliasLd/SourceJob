@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { jwtDecode } from 'jwt-decode';
 import Navbar from "./Navbar";
+import { useNavigate } from 'react-router-dom';
 
 export default function JobForm() {
-
+    const navigate = useNavigate();
     const [jobDatas, setJobDatas] = useState({
         jobName: '',
         jobType: '',
         jobDuration: '',
         Company: '',
         link: '',
+        fav: false,
     });
 
     const handleChange = (e) => {
@@ -57,7 +59,9 @@ export default function JobForm() {
                     jobDuration: '',
                     Company: '',
                     link: '',
+                    fav: false,
                 });
+                navigate('/api/jobs');
             } else {
                 console.error('Erreur envoi des données');
             }
