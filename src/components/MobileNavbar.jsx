@@ -21,7 +21,7 @@ export default function MobileNavbar() {
                         <img src={logo} className='w-10 h-10' alt='Logo' />
                     </Link>
                     {opened && (
-                        <div className="absolute top-full left-1/2 transform w-full -translate-x-1/2 bg-white border border-slate-200 p-2">
+                        <div className="absolute top-full left-1/2 transform w-full -translate-x-1/2 bg-slate-300 border border-slate-200 p-2">
                             <ul className='flex flex-row justify-center gap-x-2'>
                                 <div className='rounded-full p-1 bg-slate-100'>
                                     <li><Link to="/api/jobs" className='mx-6 font-inter'>Jobs </Link></li>

@@ -4,6 +4,8 @@ import Logout from '../auth/logout';
 import { Link } from 'react-router-dom';
 import DeleteJob from "./DeleteJob";
 import Navbar from "./Navbar";
+import MobileNavbar from "./MobileNavbar";
+import Media from 'react-media';
 
 export default function PlotJobDetails() {
     const { id } = useParams(); // récupération  de l'id en fonction de l'url
@@ -35,23 +37,29 @@ export default function PlotJobDetails() {
 
     return (
         <div>
-            <Navbar />
-            <h2>Détails du job</h2>
-            {jobDetails ? (
-                <ul>
-                    <li>Nom du job: {jobDetails.jobName}</li>
-                    <li>Type de job: {jobDetails.jobType}</li>
-                    <li>Durée du job/contrat: {jobDetails.jobDuration}</li>
-                    <li>Entreprise: {jobDetails.Company}</li>
-                </ul>
-            ) : (
-                <p>Chargement des détails du job...</p>
-            )}
-            <div className="flex m-4 gap-3">
-                <Link to={`/api/jobs/edit/${id}`} className="p-2 bg-green-500 rounded-lg" >Modifier</Link>
-                <DeleteJob JobId={id}/>
+            <Media query='(max-width: 475px)'>
+                {matches =>
+                    matches ? <MobileNavbar /> : <Navbar />
+                }
+            </Media>
+            <div>
+                <h2>Détails du job</h2>
+                {jobDetails ? (
+                    <ul>
+                        <li>Nom du job: {jobDetails.jobName}</li>
+                        <li>Type de job: {jobDetails.jobType}</li>
+                        <li>Durée du job/contrat: {jobDetails.jobDuration}</li>
+                        <li>Entreprise: {jobDetails.Company}</li>
+                    </ul>
+                ) : (
+                    <p>Chargement des détails du job...</p>
+                )}
+                <div className="flex m-4 gap-3">
+                    <Link to={`/api/jobs/edit/${id}`} className="p-2 bg-green-500 rounded-lg" >Modifier</Link>
+                    <DeleteJob JobId={id}/>
+                </div>
+                <Logout />
             </div>
-            <Logout />
         </div>
     );
 }

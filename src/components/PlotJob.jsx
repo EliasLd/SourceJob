@@ -83,18 +83,18 @@ export default function PlotJob() {
                     <div className='flex flex-row relative'>
                         <div className='transition ease-in-out duration-500 hover:bg-slate-300 p-1 rounded-2xl w-full'>
                             <div className='flex justify-center flex-col rounded-2xl bg-slate-200 p-3'>
-                                <li key={`${job.jobName}-${job._id}`} className='ml-10 truncate'> {job.jobName} </li>
-                                <li key={`${job.jobType}-${job._id}`} className='ml-10 truncate'> {job.jobType} </li>
-                                <li key={`${job.jobDuration}-${job._id}`} className='ml-10 truncate'> {job.jobDuration} </li>
-                                <li key={`${job.Company}-${job._id}`} className='ml-10 truncate'> {job.Company} </li>
+                                <li key={`${job.jobName}-${job._id}`} className='ml-10 truncate text-2xl border-2 border-b-slate-300'> {job.jobName} </li>
+                                <li key={`${job.jobType}-${job._id}`} className='ml-10 truncate'>-  {job.jobType} </li>
+                                <li key={`${job.jobDuration}-${job._id}`} className='ml-10 truncate'>- {job.jobDuration} </li>
+                                <li key={`${job.Company}-${job._id}`} className='ml-10 truncate'>- {job.Company} </li>
                                 <div className='flex flex-row ml-10 xr:ml-0 xr:absolute right-5 bottom-5'>
                                         {job.link !== '' && 
                                         <Link to={job.link}>
-                                            <img src={goLink} alt='image décrivant un lien url' className="w-8 h-8 transition ease-in-out duration-300 hover:rotate-180"/>
+                                            <img src={goLink} alt='image décrivant un lien url' className="w-6 h-6 xr:w-8 xr:h-8 transition ease-in-out duration-300 hover:rotate-180"/>
                                         </Link>
                                         }
-                                    <img src={info} onClick={() => handleClickJob(job._id)} className='ml-2 w-8 h-8 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110' />
-                                    <img src={job.fav ? filledHearth : emptyHearth} onClick={() => toggleFavorite(job._id)} className='w-8 h-8 ml-2 cursor-pointer transition ease-in-out duration-300 hover:scale-75' />
+                                    <img src={info} onClick={() => handleClickJob(job._id)} className='ml-2 w-6 h-6 xr:w-8 xr:h-8 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110' />
+                                    <img src={job.fav ? filledHearth : emptyHearth} onClick={() => toggleFavorite(job._id)} className='w-6 h-6 xr:w-8 xr:h-8 ml-2 cursor-pointer transition ease-in-out duration-300 hover:scale-75' />
                                 </div>
                             </div>
                         </div>
