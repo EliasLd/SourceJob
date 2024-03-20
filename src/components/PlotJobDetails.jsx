@@ -42,23 +42,25 @@ export default function PlotJobDetails() {
                     matches ? <MobileNavbar /> : <Navbar />
                 }
             </Media>
-            <div>
-                <h2>Détails du job</h2>
-                {jobDetails ? (
-                    <ul>
-                        <li>Nom du job: {jobDetails.jobName}</li>
-                        <li>Type de job: {jobDetails.jobType}</li>
-                        <li>Durée du job/contrat: {jobDetails.jobDuration}</li>
-                        <li>Entreprise: {jobDetails.Company}</li>
-                    </ul>
-                ) : (
-                    <p>Chargement des détails du job...</p>
-                )}
-                <div className="flex m-4 gap-3">
-                    <Link to={`/api/jobs/edit/${id}`} className="p-2 bg-green-500 rounded-lg" >Modifier</Link>
-                    <DeleteJob JobId={id}/>
+            <div className='flex justify-center'>
+                <div>
+                    <h2>Détails du job</h2>
+                        {jobDetails ? (
+                            <ul>
+                                <li>Nom du job: {jobDetails.jobName}</li>
+                                <li>Type de job: {jobDetails.jobType}</li>
+                                <li>Durée du job/contrat: {jobDetails.jobDuration}</li>
+                                <li>Entreprise: {jobDetails.Company}</li>
+                            </ul>
+                        ) : (
+                            <p>Chargement des détails du job...</p>
+                        )}
+                        <div className="flex m-4 gap-3">
+                            <Link to={`/api/jobs/edit/${id}`} className="p-2 bg-green-500 rounded-lg" >Modifier</Link>
+                            <DeleteJob JobId={id}/>
+                        </div>
+                    <Logout />
                 </div>
-                <Logout />
             </div>
         </div>
     );

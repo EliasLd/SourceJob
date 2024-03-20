@@ -87,11 +87,11 @@ export default function PlotJob() {
                     <div className='flex flex-row relative'>
                         <div className='transition ease-in-out duration-500 hover:bg-slate-300 p-1 rounded-2xl w-full'>
                             <div className='flex justify-center flex-col rounded-2xl bg-slate-200 p-3'>
-                                <li key={`${job.jobName}-${job._id}`} className='ml-10 truncate text-2xl border-2 border-b-slate-300'> {job.jobName} </li>
+                                <li key={`${job.jobName}-${job._id}`} className='mx-10 xr:mx-16 truncate text-2xl border-2 border-b-slate-300'> {job.jobName} </li>
                                 <li key={`${job.jobType}-${job._id}`} className='ml-10 truncate'>-  {job.jobType} </li>
                                 <li key={`${job.jobDuration}-${job._id}`} className='ml-10 truncate'>- {job.jobDuration} </li>
                                 <li key={`${job.Company}-${job._id}`} className='ml-10 truncate'>- {job.Company} </li>
-                                <div className='flex flex-row ml-10 xr:ml-0 xr:absolute right-5 bottom-5'>
+                                <div className='flex flex-row mt-4 ml-10 xr:ml-0 xr:absolute right-5 bottom-5'>
                                         {job.link !== '' && 
                                         <Link to={job.link}>
                                             <img src={goLink} alt='image décrivant un lien url' className="w-6 h-6 xr:w-7 xr:h-7 transition ease-in-out duration-300 hover:rotate-180"/>
