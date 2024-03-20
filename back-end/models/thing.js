@@ -8,6 +8,7 @@ const thingSchema = mongoose.Schema({
     userId: {type: String, required: true},
     link: {type: String, required: false},
     fav: {type: Boolean, required: false},
+    status: {type: String, required: true},
 });
 
 module.exports = mongoose.model('Thing', thingSchema);
