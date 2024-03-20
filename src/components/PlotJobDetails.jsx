@@ -6,6 +6,11 @@ import DeleteJob from "./DeleteJob";
 import Navbar from "./Navbar";
 import MobileNavbar from "./MobileNavbar";
 import Media from 'react-media';
+import pending from '../assets/pending.svg';
+import applied from '../assets/hourglass.svg';
+import validated from '../assets/validated.svg';
+import closed from '../assets/closed.svg';
+import goLink from '../assets/go-link.svg'
 
 export default function PlotJobDetails() {
     const { id } = useParams(); // récupération  de l'id en fonction de l'url
@@ -43,23 +48,48 @@ export default function PlotJobDetails() {
                 }
             </Media>
             <div className='flex justify-center'>
-                <div>
-                    <h2>Détails du job</h2>
-                        {jobDetails ? (
-                            <ul>
-                                <li>Nom du job: {jobDetails.jobName}</li>
-                                <li>Type de job: {jobDetails.jobType}</li>
-                                <li>Durée du job/contrat: {jobDetails.jobDuration}</li>
-                                <li>Entreprise: {jobDetails.Company}</li>
-                            </ul>
-                        ) : (
-                            <p>Chargement des détails du job...</p>
-                        )}
-                        <div className="flex m-4 gap-3">
-                            <Link to={`/api/jobs/edit/${id}`} className="p-2 bg-green-500 rounded-lg" >Modifier</Link>
-                            <DeleteJob JobId={id}/>
-                        </div>
-                    <Logout />
+                <div className='p-4 mx-3 rounded-3xl bg-slate-200 mt-24'>
+                    {jobDetails ? (
+                        <ul>
+                            <h2 className='text-3xl font-sans font-bold border-2 border-b-slate-300 mx-10 p-2'> {jobDetails.jobName} </h2>
+                            <div className='mt-5 flex flex-col gap-y-3'>
+                                <div className='flex flex-row gap-x-2 items-center'>
+                                    <li className='text-lg font-inter ml-3'>Nature de l'offre - </li>
+                                    <li className='text-lg font-inter font-semibold'> {jobDetails.jobType} </li>
+                                </div>
+                                <div className='flex flex-row gap-x-2 items-center'>
+                                    <li className='text-lg font-inter ml-3'>Durée du contrat -</li>
+                                    <li className='text-lg font-inter font-semibold'>{jobDetails.jobDuration}</li>
+                                </div>
+                                <div className='flex flex-row gap-x-2 items-center'>
+                                    <li className='text-lg font-inter ml-3'>Entreprise -</li>
+                                    <li className='text-lg font-inter font-semibold'>{jobDetails.Company}</li>
+                                </div>
+                                <div className='flex flex-row gap-x-2 items-center'>
+                                    <li className='text-lg font-inter ml-3'>Statut -</li>
+                                    <li className='text-lg font-inter font-semibold'>{jobDetails.status}</li>
+                                    <img src={jobDetails.status === 'En attente' ? applied 
+                                            : jobDetails.status === 'Entretien' ? pending 
+                                            : jobDetails.status === 'Refusée' ? closed : validated}
+                                    className='w-5 h-5 xr:w-6 xr:h-6 transition' />
+                                </div>
+                                <div className='flex flex-row gap-x-2 items-center'>
+                                    <li className='text-lg font-inter ml-3'>Lien -</li>
+                                    <li className='text-lg font-inter font-semibold'>{jobDetails.link !== '' ? 
+                                    <Link to={jobDetails.link}>
+                                            <img src={goLink} alt='image décrivant un lien url' className="w-6 h-6 xr:w-7 xr:h-7 transition ease-in-out duration-300 hover:rotate-180"/>
+                                    </Link> : 'Non renseigné' }
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                    ) : (
+                        <p>Chargement des détails du job...</p>
+                    )}
+                    <div className="flex m-4 gap-3">
+                        <Link to={`/api/jobs/edit/${id}`} className="p-2 bg-green-500 rounded-lg" >Modifier</Link>
+                        <DeleteJob JobId={id}/>
+                    </div>
                 </div>
             </div>
         </div>

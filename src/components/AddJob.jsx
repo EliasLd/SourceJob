@@ -154,14 +154,14 @@ export default function JobForm() {
                         <label>
                                 <p className='font-inter font-semibold  text-xl'>Status</p> 
                                 <div className='flex flex-col xxs:flex-row gap-x-2 p-3'>
-                                    <button type="button" onClick={() => handleStatusChange('applied')}>
-                                        <div className={`p-3 rounded-full ${jobStatus === 'applied' ? 'bg-slate-200' : ''} hover:bg-slate-200 flex flex-row gap-x-3 items-center font-inter font-semibold`}>
+                                    <button type="button" onClick={() => handleStatusChange('En attente')}>
+                                        <div className={`p-3 rounded-full ${jobStatus === 'En attente' ? 'bg-slate-200' : ''} hover:bg-slate-200 flex flex-row gap-x-3 items-center font-inter font-semibold`}>
                                             en attente
                                             <img src={applied} alt="Applied" className='w-5 h-5 xr:w-6 xr:h-6' />
                                         </div>
                                     </button>
-                                    <button type="button" onClick={() => handleStatusChange('interview')} >
-                                        <div className={`p-3 rounded-full ${jobStatus === 'interview' ? 'bg-slate-200' : ''} hover:bg-slate-200 flex flex-row gap-x-3 items-center font-inter font-semibold`}>
+                                    <button type="button" onClick={() => handleStatusChange('Entretien')} >
+                                        <div className={`p-3 rounded-full ${jobStatus === 'Entretien' ? 'bg-slate-200' : ''} hover:bg-slate-200 flex flex-row gap-x-3 items-center font-inter font-semibold`}>
                                             entretien
                                             <img src={pending} alt="Pending" className='w-5 h-5 xr:w-6 xr:h-6' />
                                         </div>

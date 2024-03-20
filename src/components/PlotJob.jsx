@@ -101,9 +101,9 @@ export default function PlotJob() {
                                     <img src={job.fav ? filledHearth : emptyHearth} onClick={() => toggleFavorite(job._id)} className='w-6 h-6 xr:w-7 xr:h-7 ml-2 cursor-pointer transition ease-in-out duration-300 hover:scale-75' />
                                 </div>
                                 <div className='flex flex-row ml-10 xr:ml-0 absolute right-3 xr:left-3 top-3'>
-                                    <img src={job.status === 'applied' ? applied 
-                                            : job.status === 'interview' ? pending 
-                                            : job.status === 'closed' ? closed : validated}
+                                    <img src={job.status === 'En attente' ? applied 
+                                            : job.status === 'Entretien' ? pending 
+                                            : job.status === 'Refusée' ? closed : validated}
                                     className='w-5 h-5 xr:w-6 xr:h-6 transition' />
                                 </div>
                             </div>
