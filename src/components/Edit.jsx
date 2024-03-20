@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import Navbar from "./Navbar";
+import MobileNavbar from "./MobileNavbar";
+import Media from 'react-media';
+import applied from '../assets/hourglass.svg'
+import pending from '../assets/pending.svg';
+import closed from '../assets/closed.svg';
+import validate from '../assets/validated.svg';
 
 export default function Edit() {
    
@@ -10,8 +17,12 @@ export default function Edit() {
         jobName: '',
         jobType: '',
         jobDuration: '',
-        Company: ''
+        Company: '',
+        link:'',
+        status:'',
    });
+   
+   const [jobStatus, setJobStatus] = useState('');
     
    //Tout d'abord, on récupère les données du job à modifier 
    useEffect(() => {
@@ -36,6 +47,13 @@ export default function Edit() {
     };
     getJobdatas();
    }, [id]);
+
+    const handleStatusChange = (status) => {
+        setDatas((prev) => ({
+            ...prev, status: status
+        }));
+        setJobStatus(status);
+    };
 
    const handleSubmit = async (e) => {
     e.preventDefault(); //on évite le rafraîchissement de la page au submit
@@ -70,46 +88,104 @@ export default function Edit() {
 
    return (
     <div>
-        <h2>Modifier le job</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Nom du job
-                    <input
-                        type="text"
-                        name="jobName"
-                        value={datas.jobName}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Type de job
-                    <input
-                        type="text"
-                        name="jobType"
-                        value={datas.jobType}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Durée du job/contrat
-                    <input
-                        type="text"
-                        name="jobDuration"
-                        value={datas.jobDuration}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Entreprise
-                    <input
-                        type="text"
-                        name="Company"
-                        value={datas.Company}
-                        onChange={handleChange}
-                    />
-                </label>
-                <button type="submit">Modifier</button>
-            </form>
+        <Media query='(max-width: 475px)'>
+            {matches =>
+                matches ? <MobileNavbar /> : <Navbar />
+            }
+        </Media>
+        <div className='absolute inset-0  flex flex-col justify-center items-center mt-36  xr:mt-16'>
+            <div className='rounded-lg flex justify-center flex-col mt-16 bg-white shadow-xl p-1 xxs:p-4'>
+                <h2 className='font-sans font-bold text-3xl p-6'>Modifier le job</h2>
+                <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center p-2 xxs:p-5 rounded-3xl' >
+                    <div className='flex flex-col sm:flex-row'>
+                        <label>
+                            <p className='font-inter font-semibold  text-xl'>Nom du job</p>
+                            <input
+                                type="text"
+                                name="jobName"
+                                value={datas.jobName}
+                                onChange={handleChange}
+                                className='m-3 p-2 flex flex-col w-60 xxs:w-80  font-inter italic rounded-2xl bg-slate-100 transition ease-in-out duration-300 focus:scale-110 focus:bg-white'
+                            />
+                        </label>
+                        <label>
+                            <p className='font-inter font-semibold text-xl'>Type de job</p>
+                            <input
+                                type="text"
+                                name="jobType"
+                                value={datas.jobType}
+                                onChange={handleChange}
+                                className='m-3 p-2 flex flex-col w-60 xxs:w-80  font-inter italic rounded-2xl bg-slate-100 transition ease-in-out duration-300 focus:scale-110 focus:bg-white'
+                            />
+                        </label>
+                    </div>
+                    <div className='flex flex-col sm:flex-row'>
+                        <label>
+                            <p className='font-inter font-semibold text-xl'>Durée du job/contrat</p>
+                            <input
+                                type="text"
+                                name="jobDuration"
+                                value={datas.jobDuration}
+                                onChange={handleChange}
+                                className='m-3 p-2 flex flex-col w-60 xxs:w-80  font-inter italic rounded-2xl bg-slate-100 transition ease-in-out duration-300 focus:scale-110 focus:bg-white'
+                            />
+                        </label>
+                        <label>
+                            <p className='font-inter font-semibold text-xl'>Entreprise</p>
+                            <input
+                                type="text"
+                                name="Company"
+                                value={datas.Company}
+                                onChange={handleChange}
+                                className='m-3 p-2 flex flex-col w-60 xxs:w-80  font-inter italic rounded-2xl bg-slate-100 transition ease-in-out duration-300 focus:scale-110 focus:bg-white'
+                            />
+                        </label>
+                    </div>
+                    <div className='flex flex-col sm:flex-row'>
+                        <label>
+                            <p className='font-inter font-semibold text-xl'>URL</p>
+                            <input
+                                type="text"
+                                name="link"
+                                value={datas.link}
+                                onChange={handleChange}
+                                className='m-3 p-2 flex flex-col w-60 xxs:w-80  font-inter italic rounded-2xl bg-slate-100 transition ease-in-out duration-300 focus:scale-110 focus:bg-white'
+                            />
+                        </label>
+                        <label>
+                            <p className='font-inter font-semibold text-xl'>Statut</p>
+                            <div className='flex flex-col xxs:flex-row gap-x-2 p-3'>
+                                <button type="button" onClick={() => handleStatusChange('En attente')}>
+                                        <div className={`p-3 rounded-full ${jobStatus === 'En attente' ? 'bg-slate-200' : ''} hover:bg-slate-200 flex flex-row gap-x-3 items-center font-inter font-semibold`}>
+                                            En attente
+                                            <img src={applied} alt="candidature en attente de traitement" className='w-5 h-5 xr:w-6 xr:h-6' />
+                                        </div>
+                                </button>
+                                <button type="button" onClick={() => handleStatusChange('Entretien')} >
+                                        <div className={`p-3 rounded-full ${jobStatus === 'Entretien' ? 'bg-slate-200' : ''} hover:bg-slate-200 flex flex-row gap-x-3 items-center font-inter font-semibold`}>
+                                            Entretien
+                                            <img src={pending} alt="Entretien passsé ou à passer prochainement" className='w-5 h-5 xr:w-6 xr:h-6' />
+                                        </div>
+                                </button>
+                                <button type="button" onClick={() => handleStatusChange('Refusée')} >
+                                    <div className={`p-3 rounded-full ${jobStatus === 'Refusée' ? 'bg-slate-200' : ''} hover:bg-slate-200  items-center`}>
+                                            <img src={closed} alt="Candidature non retenue" className='w-5 h-5 xr:w-6 xr:h-6' />
+                                    </div>
+                                </button>
+                                <button type="button" onClick={() => handleStatusChange('Acceptée')} >
+                                    <div className={`p-3 rounded-full ${jobStatus === 'Acceptée' ? 'bg-slate-200' : ''} hover:bg-slate-200  items-center`}>
+                                            <img src={validate} alt="Candidature retenue" className='w-5 h-5 xr:w-6 xr:h-6' />
+                                    </div>
+                                </button>
+                            </div>
+                        </label>
+                    </div>
+                    <div className='p-2 rounded-lg bg-green-500 mt-6 font-sans font-semibold text-white transition ease-in-out duration-300 hover:scale-110'>
+                        <button type="submit" className='mx-3'>Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
   )
 }
