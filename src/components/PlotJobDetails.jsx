@@ -12,6 +12,7 @@ import validated from '../assets/validated.svg';
 import closed from '../assets/closed.svg';
 import goLink from '../assets/go-link.svg'
 import AppDate from '../assets/calendar.svg';
+import editDraft from '../assets/draft.svg';
 
 export default function PlotJobDetails() {
     const { id } = useParams(); // récupération  de l'id en fonction de l'url
@@ -85,15 +86,20 @@ export default function PlotJobDetails() {
                                 <div className='flex flex-row gap-x-2 items-center'>
                                     <li className='text-lg font-inter ml-3'>Date -</li>
                                     <li className='text-lg font-inter font-semibold'>{jobDetails.date}</li>
+                                    <img src ={AppDate} className='w-6 h-6 xr:w-7 xr:h-7 ml-2' />
                                 </div>
                             </div>
                         </ul>
                     ) : (
                         <p>Chargement des détails du job...</p>
                     )}
-                    <div className="flex m-4 gap-3">
-                        <Link to={`/api/jobs/edit/${id}`} className="p-2 bg-green-500 rounded-lg" >Modifier</Link>
-                        <DeleteJob JobId={id}/>
+                    <div className="flex justify-between m-3 gap-3">
+                        <Link to={`/api/jobs/edit/${id}`}>
+                            <img src={editDraft} className='w-6 h-6 xr:w-7 xr:h-7' />
+                        </Link>
+                        <div className='rounded-lg transition ease-in-out duration-300 hover:rotate-12'>
+                            <DeleteJob JobId={id}/>
+                        </div>
                     </div>
                 </div>
             </div>

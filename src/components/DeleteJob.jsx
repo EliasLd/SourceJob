@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import deleteDraft from '../assets/trash.svg';
 
 export default function DeleteJob({ JobId }) {
 
@@ -35,8 +36,8 @@ export default function DeleteJob({ JobId }) {
         {isLoading ? (
             <p>...</p>
         ) : (
-            <button onClick={handleDelete} className="p-2 bg-red-600 rounded-lg text-white">
-                Supprimer
+            <button onClick={handleDelete}>
+                <img src={deleteDraft} className="w-6 h-6 xr:w-7 xr:h-7"/>
             </button>
         )}
     </div>
