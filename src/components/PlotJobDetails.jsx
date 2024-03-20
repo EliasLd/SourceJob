@@ -11,6 +11,7 @@ import applied from '../assets/hourglass.svg';
 import validated from '../assets/validated.svg';
 import closed from '../assets/closed.svg';
 import goLink from '../assets/go-link.svg'
+import AppDate from '../assets/calendar.svg';
 
 export default function PlotJobDetails() {
     const { id } = useParams(); // récupération  de l'id en fonction de l'url
@@ -80,6 +81,10 @@ export default function PlotJobDetails() {
                                             <img src={goLink} alt='image décrivant un lien url' className="w-6 h-6 xr:w-7 xr:h-7 transition ease-in-out duration-300 hover:rotate-180"/>
                                     </Link> : 'Non renseigné' }
                                     </li>
+                                </div>
+                                <div className='flex flex-row gap-x-2 items-center'>
+                                    <li className='text-lg font-inter ml-3'>Date -</li>
+                                    <li className='text-lg font-inter font-semibold'>{jobDetails.date}</li>
                                 </div>
                             </div>
                         </ul>

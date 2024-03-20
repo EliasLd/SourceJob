@@ -44,6 +44,17 @@ export default function JobForm() {
             console.error('Erreur de décodage du token', error);
             return null;
         }
+    };
+
+    const getRegisteredDate = () => {
+        const todaysDate = new Date();
+
+        const dd = todaysDate.getDate().toString().padStart(2, '0');
+        const mm = (todaysDate.getMonth() + 1).toString().padStart(2, '0');
+        const yyyy = todaysDate.getFullYear();
+
+        return (`${dd}/${mm}/${yyyy}`);
+
     }
 
     const handleSubmit = async (e) => {
@@ -61,7 +72,8 @@ export default function JobForm() {
                 },
                 body: JSON.stringify({
                     ...jobDatas,
-                    userId: userId
+                    userId: userId,
+                    date: getRegisteredDate()
                 })
             });
 
