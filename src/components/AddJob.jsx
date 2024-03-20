@@ -5,8 +5,6 @@ import MobileNavbar from "./MobileNavbar";
 import { useNavigate } from 'react-router-dom';
 import Media from 'react-media';
 import pending from '../assets/pending.svg';
-import validated from '../assets/validated.svg';
-import closed from '../assets/closed.svg';
 import applied from '../assets/hourglass.svg';
 
 export default function JobForm() {
@@ -155,25 +153,17 @@ export default function JobForm() {
                         </label>
                         <label>
                                 <p className='font-inter font-semibold  text-xl'>Status</p> 
-                                <div className='flex flex-row gap-x-8 p-3'>
-                                    <button type="button" onClick={() => handleStatusChange('interview')} >
-                                        <div className={`p-3 rounded-full ${jobStatus === 'interview' ? 'bg-slate-200' : ''} hover:bg-slate-100`}>
-                                            <img src={pending} alt="Pending" className='w-6 h-6 ' />
-                                        </div>
-                                    </button>
-                                    <button type="button" onClick={() => handleStatusChange('validated')}>
-                                        <div className={`p-3 rounded-full ${jobStatus === 'validated' ? 'bg-slate-200' : ''} hover:bg-slate-100`}>
-                                            <img src={validated} alt="Validated" className='w-6 h-6' />
-                                        </div>
-                                    </button>
-                                    <button type="button" onClick={() => handleStatusChange('closed')}>
-                                        <div className={`p-3 rounded-full ${jobStatus === 'closed' ? 'bg-slate-200' : ''} hover:bg-slate-100`}>
-                                            <img src={closed} alt="Closed"className='w-6 h-6' />
-                                        </div>
-                                    </button>
+                                <div className='flex flex-col xxs:flex-row gap-x-2 p-3'>
                                     <button type="button" onClick={() => handleStatusChange('applied')}>
-                                        <div className={`p-3 rounded-full ${jobStatus === 'applied' ? 'bg-slate-200' : ''} hover:bg-slate-100`}>
-                                            <img src={applied} alt="Applied" className='w-6 h-6' />
+                                        <div className={`p-3 rounded-full ${jobStatus === 'applied' ? 'bg-slate-200' : ''} hover:bg-slate-200 flex flex-row gap-x-3 items-center font-inter font-semibold`}>
+                                            en attente
+                                            <img src={applied} alt="Applied" className='w-5 h-5 xr:w-6 xr:h-6' />
+                                        </div>
+                                    </button>
+                                    <button type="button" onClick={() => handleStatusChange('interview')} >
+                                        <div className={`p-3 rounded-full ${jobStatus === 'interview' ? 'bg-slate-200' : ''} hover:bg-slate-200 flex flex-row gap-x-3 items-center font-inter font-semibold`}>
+                                            entretien
+                                            <img src={pending} alt="Pending" className='w-5 h-5 xr:w-6 xr:h-6' />
                                         </div>
                                     </button>
                                 </div>

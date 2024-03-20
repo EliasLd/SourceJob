@@ -8,6 +8,10 @@ import info from '../assets/info.svg';
 import goLink from '../assets/go-link.svg';
 import filledHearth from '../assets/filledHeart.svg';
 import emptyHearth from '../assets/emptyHeart.svg';
+import pending from '../assets/pending.svg';
+import applied from '../assets/hourglass.svg';
+import validated from '../assets/validated.svg';
+import closed from '../assets/closed.svg';
 
 export default function PlotJob() {
     const navigate = useNavigate();
@@ -90,11 +94,17 @@ export default function PlotJob() {
                                 <div className='flex flex-row ml-10 xr:ml-0 xr:absolute right-5 bottom-5'>
                                         {job.link !== '' && 
                                         <Link to={job.link}>
-                                            <img src={goLink} alt='image décrivant un lien url' className="w-6 h-6 xr:w-8 xr:h-8 transition ease-in-out duration-300 hover:rotate-180"/>
+                                            <img src={goLink} alt='image décrivant un lien url' className="w-6 h-6 xr:w-7 xr:h-7 transition ease-in-out duration-300 hover:rotate-180"/>
                                         </Link>
                                         }
-                                    <img src={info} onClick={() => handleClickJob(job._id)} className='ml-2 w-6 h-6 xr:w-8 xr:h-8 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110' />
-                                    <img src={job.fav ? filledHearth : emptyHearth} onClick={() => toggleFavorite(job._id)} className='w-6 h-6 xr:w-8 xr:h-8 ml-2 cursor-pointer transition ease-in-out duration-300 hover:scale-75' />
+                                    <img src={info} onClick={() => handleClickJob(job._id)} className='ml-2 w-6 h-6 xr:w-7 xr:h-7 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110' />
+                                    <img src={job.fav ? filledHearth : emptyHearth} onClick={() => toggleFavorite(job._id)} className='w-6 h-6 xr:w-7 xr:h-7 ml-2 cursor-pointer transition ease-in-out duration-300 hover:scale-75' />
+                                </div>
+                                <div className='flex flex-row ml-10 xr:ml-0 absolute right-3 xr:left-3 top-3'>
+                                    <img src={job.status === 'applied' ? applied 
+                                            : job.status === 'interview' ? pending 
+                                            : job.status === 'closed' ? closed : validated}
+                                    className='w-5 h-5 xr:w-6 xr:h-6 transition' />
                                 </div>
                             </div>
                         </div>
