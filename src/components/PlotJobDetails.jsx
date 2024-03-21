@@ -44,7 +44,7 @@ export default function PlotJobDetails() {
 
     return (
         <div>
-            <Media query='(max-width: 475px)'>
+            <Media query='(max-width: 600px)'>
                 {matches =>
                     matches ? <MobileNavbar /> : <Navbar />
                 }

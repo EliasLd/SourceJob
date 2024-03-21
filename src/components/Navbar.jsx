@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
+import Logout from '../auth/logout';
 
 export default function Navbar() {
   return (
@@ -14,6 +15,7 @@ export default function Navbar() {
                     <Link to='/api/jobs/addJob' className='font-inter font-semibold text-sm xxs:text-base  p-3 hover:border-b-2 transition ease-in-out duration-500 hover:border-b-black'>Ajouter un job</Link>
                     <Link to='/api/jobs' className='font-inter font-semibold text-sm xxs:text-base p-3 hover:border-b-2 transition ease-in-out duration-500 hover:border-b-black'>Voir les jobs</Link> 
                     <Link to='/api/profile' className='font-inter font-semibold text-sm xxs:text-base p-3 hover:border-b-2 transition ease-in-out duration-500 hover:border-b-black'>Profil</Link>  
+                    <Logout />
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import out from '../assets/quit.svg';
 
 export default function Logout() {
 
@@ -11,8 +12,10 @@ export default function Logout() {
     }
 
     return(
-        <div className='m-5 p-4 flex flex-col'>
-            <button className='p-4 rounded-lg text-white bg-red-700' onClick={handleLogout}>Se déconnecter</button>
+        <div className='m-5 p-2 flex items-center'>
+            <button onClick={handleLogout}>
+                <img src={out} className='w-8 h-8' />
+            </button>
         </div>
     );
 

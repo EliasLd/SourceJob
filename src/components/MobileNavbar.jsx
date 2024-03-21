@@ -3,6 +3,7 @@ import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
 import hamburger from '../assets/hamburger.svg';
 import cross from '../assets/cross.svg';
+import Logout from '../auth/logout';
 
 export default function MobileNavbar() {
 
@@ -17,9 +18,12 @@ export default function MobileNavbar() {
             <div className='max-w-4xl mx-auto px-4 relative'>
                 <div className='flex items-center justify-between h-16'>
                     <img src={opened ? cross : hamburger} onClick={toggleMenu} className='w-10 h-10 transition ease-in-out duration-300 hover:rotate-90 ' alt='Hamburger Icon' />
-                    <Link to='/api/jobs'>
-                        <img src={logo} className='w-10 h-10' alt='Logo' />
-                    </Link>
+                    <div className='flex flex-row items-center'>
+                        <Link to='/api/jobs'>
+                            <img src={logo} className='w-10 h-10' alt='Logo' />
+                        </Link>
+                        <Logout />
+                    </div>
                     {opened && (
                         <div className="absolute top-full left-1/2 transform w-full -translate-x-1/2 bg-slate-300 border border-slate-200 p-2">
                             <ul className='flex flex-row justify-center gap-x-2'>
