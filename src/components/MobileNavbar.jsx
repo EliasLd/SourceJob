@@ -17,7 +17,7 @@ export default function MobileNavbar() {
         <nav className='sticky top-0 z-10 bg-white border border-slate-200'>
             <div className='max-w-4xl mx-auto px-4 relative'>
                 <div className='flex items-center justify-between h-16'>
-                    <img src={opened ? cross : hamburger} onClick={toggleMenu} className='w-10 h-10 transition ease-in-out duration-300 hover:rotate-90 ' alt='Hamburger Icon' />
+                    <img src={opened ? cross : hamburger} onClick={toggleMenu} className='w-10 h-10 transition ease-in-out duration-300 hover:rotate-90 cursor-pointer' alt='Hamburger Icon' />
                     <div className='flex flex-row items-center'>
                         <Link to='/api/jobs'>
                             <img src={logo} className='w-10 h-10' alt='Logo' />
