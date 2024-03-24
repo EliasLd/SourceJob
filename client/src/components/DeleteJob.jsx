@@ -11,7 +11,7 @@ export default function DeleteJob({ JobId }) {
     try {
         setIsLoading(true);
         const token = localStorage.getItem('token');
-        const res = await fetch(`http://localhost:3000/api/jobs/${JobId}`, {
+        const res = await fetch(`https://sourcejob.onrender.com/api/jobs/${JobId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

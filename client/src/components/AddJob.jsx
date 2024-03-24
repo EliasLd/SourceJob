@@ -64,7 +64,7 @@ export default function JobForm() {
         const userId = getUserId(token);
 
         try {
-            const res = await fetch('http://localhost:3000/api/jobs', {
+            const res = await fetch('https://sourcejob.onrender.com/api/jobs', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

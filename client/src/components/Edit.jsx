@@ -30,7 +30,7 @@ export default function Edit() {
     const getJobdatas = async () => {
         try {
             const token = localStorage.getItem('token'); //récupération du token de l'utilisateur courant
-            const res = await fetch(`http://localhost:3000/api/jobs/${id}`, {
+            const res = await fetch(`https://sourcejob.onrender.com/api/jobs/${id}`, {
                 headers: {
                     'Authorization': `Bearer ${token}` //authentification de l'utilisateur
                 }
@@ -59,7 +59,7 @@ export default function Edit() {
     e.preventDefault(); //on évite le rafraîchissement de la page au submit
     try { //essaie de modification des données
         const token = localStorage.getItem('token');
-        const res = await fetch(`http://localhost:3000/api/jobs/${id}`, {
+        const res = await fetch(`https://sourcejob.onrender.com/api/jobs/${id}`, {
             method: 'PUT', //pour la modification
             headers: {
                 'Content-type': 'application/json',

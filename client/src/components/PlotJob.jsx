@@ -23,7 +23,7 @@ export default function PlotJob() {
     const handleFetchJobs = async () => {
         try {
             const token = localStorage.getItem('token');    // On récupère le token du client pour autoriser la requête
-            const res = await fetch('http://localhost:3000/api/jobs', {
+            const res = await fetch('https://sourcejob.onrender.com/api/jobs', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -55,7 +55,7 @@ export default function PlotJob() {
             setJobsList(updatedJobsList);
 
             const token = localStorage.getItem('token');
-            await fetch(`http://localhost:3000/api/jobs/${jobId}/favorite`, {
+            await fetch(`https://sourcejob.onrender.com/api/jobs/${jobId}/favorite`, {
                 method: 'PUT',
                 headers: {
                     'Content-type': 'application/json',

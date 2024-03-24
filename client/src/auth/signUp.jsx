@@ -21,7 +21,7 @@ export default function SignUp() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/api/auth/signup', datas);
+            const response = await axios.post('https://sourcejob.onrender.com/api/auth/signup', datas);
             console.log(response.data);
             navigate('/auth/login');
         } catch (error) {

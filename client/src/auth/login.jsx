@@ -22,7 +22,7 @@ export default function Login(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/api/auth/login', datas);
+            const response = await axios.post('https://sourcejob.onrender.com/api/auth/login', datas);
             console.log(response.data);
             const token = response.data.token;
             localStorage.setItem('token', token);

@@ -22,7 +22,7 @@ export default function PlotJobDetails() {
     const fetchJobDetails = async () => {
         try {
             const token = localStorage.getItem('token');
-            const res = await fetch(`http://localhost:3000/api/jobs/${id}`,{
+            const res = await fetch(`https://sourcejob.onrender.com/api/jobs/${id}`,{
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
