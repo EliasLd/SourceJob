@@ -1,4 +1,4 @@
-const Thing = require('../Models/Thing');
+const Thing = require('../Models/Things');
 const jwt = require('jsonwebtoken');
 
 exports.createThing = (req, res, next) => {
