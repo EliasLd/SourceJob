@@ -99,7 +99,7 @@ export default function Edit() {
                 <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center p-2 xxs:p-5 rounded-3xl' >
                     <div className='flex flex-col sm:flex-row'>
                         <label>
-                            <p className='font-inter font-semibold  text-xl'>Nom du job</p>
+                            <p className='font-inter font-semibold  text-xl'>Nom du job*</p>
                             <input
                                 type="text"
                                 name="jobName"
@@ -109,7 +109,7 @@ export default function Edit() {
                             />
                         </label>
                         <label>
-                            <p className='font-inter font-semibold text-xl'>Type de job</p>
+                            <p className='font-inter font-semibold text-xl'>Type de job*</p>
                             <input
                                 type="text"
                                 name="jobType"
@@ -121,7 +121,7 @@ export default function Edit() {
                     </div>
                     <div className='flex flex-col sm:flex-row'>
                         <label>
-                            <p className='font-inter font-semibold text-xl'>Durée du job/contrat</p>
+                            <p className='font-inter font-semibold text-xl'>Durée du job/contrat*</p>
                             <input
                                 type="text"
                                 name="jobDuration"
@@ -131,7 +131,7 @@ export default function Edit() {
                             />
                         </label>
                         <label>
-                            <p className='font-inter font-semibold text-xl'>Entreprise</p>
+                            <p className='font-inter font-semibold text-xl'>Entreprise*</p>
                             <input
                                 type="text"
                                 name="Company"
@@ -153,7 +153,7 @@ export default function Edit() {
                             />
                         </label>
                         <label>
-                            <p className='font-inter font-semibold text-xl'>Statut</p>
+                            <p className='font-inter font-semibold text-xl'>Statut*</p>
                             <div className='flex flex-col xxs:flex-row gap-x-2 p-3'>
                                 <button type="button" onClick={() => handleStatusChange('En attente')}>
                                         <div className={`p-3 rounded-full ${jobStatus === 'En attente' ? 'bg-slate-200' : ''} hover:bg-slate-200 flex flex-row gap-x-3 items-center font-inter font-semibold`}>
