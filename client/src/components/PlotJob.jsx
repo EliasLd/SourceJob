@@ -12,6 +12,7 @@ import pending from '../assets/pending.svg';
 import applied from '../assets/hourglass.svg';
 import validated from '../assets/validated.svg';
 import closed from '../assets/closed.svg';
+import load from '../assets/loading.svg';
 
 export default function PlotJob() {
     const navigate = useNavigate();
@@ -19,9 +20,11 @@ export default function PlotJob() {
     const [jobsList, setJobsList] = useState([]);
     const [showJobs, setShowJobs] = useState(true);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleFetchJobs = async () => {
         try {
+            setLoading(true);
             const token = localStorage.getItem('token');    // On récupère le token du client pour autoriser la requête
             const res = await fetch('https://sourcejob.onrender.com/api/jobs', {
                 headers: {
@@ -37,7 +40,9 @@ export default function PlotJob() {
         } catch (error) {
             console.error("Erreur requête:", error);
             setError(error.message); 
-          }
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleClickJob = (jobId) => {
@@ -82,7 +87,9 @@ export default function PlotJob() {
             }
         </Media>
         <div className='flex justify-center mb-10 xr:mt-0'>
-            <ul className='mt-16 p-2 rounded-2xl grid grid-cols-1 xs:grid-cols-2 gap-x-2 gap-y-2 flex-wrap font-inter font-semibold'>
+            {loading ? <div className='flex justify-center items-center mt-24'>
+                                        <img src={load} className='animate-spin w-10 h-10'/>
+                                   </div> : <ul className='mt-16 p-2 rounded-2xl grid grid-cols-1 xs:grid-cols-2 gap-x-2 gap-y-2 flex-wrap font-inter font-semibold'>
                 {jobsList.map((job) => (
                     <div className='flex flex-row relative'>
                         <div className='transition ease-in-out duration-500 hover:bg-slate-300 p-1 rounded-2xl w-full'>
@@ -110,7 +117,7 @@ export default function PlotJob() {
                         </div>
                     </div>
                 ))}
-            </ul> 
+            </ul> } 
         </div>
     </div>
 );
