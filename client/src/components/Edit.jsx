@@ -93,9 +93,9 @@ export default function Edit() {
                 matches ? <MobileNavbar /> : <Navbar />
             }
         </Media>
-        <div className='absolute inset-0  flex flex-col justify-center items-center mt-36  xr:mt-16'>
+        <div className='absolute inset-0  flex flex-col justify-center items-center mb-24  xr:mb-0 mt-36  xr:mt-24'>
             <div className='rounded-lg flex justify-center flex-col mt-16 bg-white shadow-xl p-1 xxs:p-4'>
-                <h2 className='font-sans font-bold text-3xl p-6'>Modifier le job</h2>
+                <h2 className='font-sans font-bold text-3xl mt-24  xr:mt-0 p-6'>Modifier le job</h2>
                 <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center p-2 xxs:p-5 rounded-3xl' >
                     <div className='flex flex-col sm:flex-row'>
                         <label>
@@ -180,9 +180,9 @@ export default function Edit() {
                             </div>
                         </label>
                     </div>
-                    <div className='p-2 rounded-lg bg-green-500 mt-6 font-sans font-semibold text-white transition ease-in-out duration-300 hover:scale-110'>
-                        <button type="submit" className='mx-3'>Valider</button>
-                    </div>
+                    <div className='mb-10'>
+                        <button type="submit" className='mx-3 p-2 rounded-lg bg-green-500 mt-2 font-sans font-semibold text-white transition ease-in-out duration-300 hover:scale-110'>Valider</button>
+                    </div> 
                 </form>
             </div>
         </div>

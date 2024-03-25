@@ -81,7 +81,7 @@ export default function PlotJob() {
                 matches ? <MobileNavbar /> : <Navbar />
             }
         </Media>
-        <div className='flex justify-center'>
+        <div className='flex justify-center mb-10 xr:mt-0'>
             <ul className='mt-16 p-2 rounded-2xl grid grid-cols-1 xs:grid-cols-2 gap-x-2 gap-y-2 flex-wrap font-inter font-semibold'>
                 {jobsList.map((job) => (
                     <div className='flex flex-row relative'>

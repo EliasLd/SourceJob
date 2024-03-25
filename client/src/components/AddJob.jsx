@@ -181,7 +181,9 @@ export default function JobForm() {
                                 </div>
                         </label>
                         </div>
-                        <button type="submit" className='mt-5 p-2 mx-24 sm:mx-64  text-white font-inter font-semibold rounded-lg bg-blue-600 transition ease-in-out duration-300 hover:scale-110'>Sauvegarder</button>
+                        <div className='mb-10'>
+                            <button type="submit" className='mt-5 p-2 mx-24 sm:mx-64  text-white font-inter font-semibold rounded-lg bg-blue-600 transition ease-in-out duration-300 hover:scale-110'>Sauvegarder</button>
+                        </div>
                     </form>
                 </div>
                 
