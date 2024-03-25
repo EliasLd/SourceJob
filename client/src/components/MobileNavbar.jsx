@@ -33,9 +33,6 @@ export default function MobileNavbar() {
                                 <div className='rounded-full p-1 bg-slate-100'>
                                     <li><Link to="/api/jobs/addJob" className='mx-6 font-inter'>Ajouter </Link></li>
                                 </div>
-                                <div className='rounded-full p-1 bg-slate-100'>
-                                    <li><Link to="/api/profile" className='mx-4 font-inter'>Profil </Link></li>
-                                </div>
                             </ul>
                         </div>
                     )}

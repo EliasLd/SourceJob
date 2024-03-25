@@ -7,9 +7,9 @@ export default function SignUp() {
     const navigate = useNavigate();
 
     const [datas, setDatas] = useState({
-        firstName: '',
         email: '',
-        password: ''
+        password: '',
+        firstName: '',
     });
 
     const [loading, setLoading] = useState(false); 
