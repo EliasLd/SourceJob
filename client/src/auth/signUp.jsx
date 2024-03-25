@@ -6,14 +6,14 @@ import load from '../assets/loading.svg';
 export default function SignUp() {
     const navigate = useNavigate();
 
-    const [datas, setDatas] = useState({
-        email: '',
-        password: '',
+        const [datas, setDatas] = useState({
         firstName: '',
+        email: '',
+        password: ''
     });
 
-    const [loading, setLoading] = useState(false); 
     const [err, setErr] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,17 +21,16 @@ export default function SignUp() {
             ...previous, [name]: value
         }));
     };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             setLoading(true);
-            const response = await axios.post('https://sourcejob.onrender.com/api/auth/signup', datas);
+            const response = await axios.post('http://localhost:3000/api/auth/signup', datas);
             console.log(response.data);
             navigate('/auth/login');
         } catch (error) {
             console.error('Erreur lors de la création du compte: ', error);
-            setErr('Erreur de création du compte')
+            setErr('Erreur de création de compte');
         } finally {
             setLoading(false);
         }
@@ -48,7 +47,6 @@ export default function SignUp() {
                             </div>}
                     <div className="flex justify-center">
                         <form onSubmit={handleSubmit}>
-                            <input type="text" name="firstName" value={datas.firstName} onChange={handleChange} onClick={() => setErr(null)} placeholder="Prénom..." className="m-5 p-3 flex flex-col w-60 xs:w-80 bg-slate-300 rounded-2xl transition ease-in-out duration-300 focus:scale-110 focus:bg-white" />
                             <input type="text" name="email" value={datas.email} onChange={handleChange} onClick={() => setErr(null)} placeholder='Email...' className='m-5 p-3 flex flex-col w-60 xs:w-80 bg-slate-300 rounded-2xl transition ease-in-out duration-300 focus:scale-110 focus:bg-white'/>
                             <input type="password" name="password" value={datas.password} onChange={handleChange} onClick={() => setErr(null)} placeholder='Mot de passe...' className='m-5 p-3 flex flex-col w-60 xs:w-80 bg-slate-300 rounded-2xl transition ease-in-out duration-300 focus:scale-110 focus:bg-white'/>
                             <div className='flex justify-center'>
