@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Logout from '../auth/logout';
 import { Link } from 'react-router-dom';
 import DeleteJob from "./DeleteJob";
 import Navbar from "./Navbar";
@@ -73,20 +72,20 @@ export default function PlotJobDetails() {
                                     <img src={jobDetails.status === 'En attente' ? applied 
                                             : jobDetails.status === 'Entretien' ? pending 
                                             : jobDetails.status === 'Refusée' ? closed : validated}
-                                    className='w-5 h-5 xr:w-6 xr:h-6 transition' />
+                                    alt='statut de la candidature' className='w-5 h-5 xr:w-6 xr:h-6 transition' />
                                 </div>
                                 <div className='flex flex-row gap-x-2 items-center'>
                                     <li className='text-lg font-inter ml-3'>Lien -</li>
                                     <li className='text-lg font-inter font-semibold'>{jobDetails.link !== '' ? 
                                     <Link to={jobDetails.link}>
-                                            <img src={goLink} alt='image décrivant un lien url' className="w-6 h-6 xr:w-7 xr:h-7 transition ease-in-out duration-300 hover:rotate-180"/>
+                                            <img src={goLink} alt='lien url' className="w-6 h-6 xr:w-7 xr:h-7 transition ease-in-out duration-300 hover:rotate-180"/>
                                     </Link> : 'Non renseigné' }
                                     </li>
                                 </div>
                                 <div className='flex flex-row gap-x-2 items-center'>
                                     <li className='text-lg font-inter ml-3'>Date -</li>
                                     <li className='text-lg font-inter font-semibold'>{jobDetails.date}</li>
-                                    <img src ={AppDate} className='w-6 h-6 xr:w-7 xr:h-7 ml-2' />
+                                    <img src ={AppDate} alt='' className='w-6 h-6 xr:w-7 xr:h-7 ml-2' />
                                 </div>
                             </div>
                         </ul>
@@ -95,7 +94,7 @@ export default function PlotJobDetails() {
                     )}
                     <div className="flex justify-between m-3 gap-3">
                         <Link to={`/api/jobs/edit/${id}`}>
-                            <img src={editDraft} className='w-6 h-6 xr:w-7 xr:h-7' />
+                            <img src={editDraft} alt='' className='w-6 h-6 xr:w-7 xr:h-7' />
                         </Link>
                         <div className='rounded-lg transition ease-in-out duration-300 hover:rotate-12'>
                             <DeleteJob JobId={id}/>
