@@ -36,5 +36,11 @@ Elle permet une bonne gestion des données et des requêtes ainsi qu'une interfa
 ### Application Web 🖥️ 
 
 <img src='client/src/assets/React.svg' width=40 height=40 align='center'/> - [**React**](https://react.dev) : Il s'agit d'une librairie javascript permettant le développement d'interfaces utilisateur pour des applications en single-page.
+<img src='client/src/assets/Tailwind.svg' width=40 height=40 align='center'/> - [**Tailwind CSS**](https://tailwindcss.com) : Framework CSS de type "utility-first" facilitant le design et la stylisation d'une page web.
+
+### Serveur & API 🧬
+
+<img src='client/src/assets/NodeJS.svg' width=40 height=40 align='center'/> - [**NodeJS**](https://nodejs.org/en) : Il s'agit d'un environnement d’exécution single-thread, open-source et multi-plateforme permettant de créer des applications rapides et évolutives côté serveur et en réseau. <br>
+<img src='client/src/assets/ExpressJS.svg' width=40 height=40 align='center'/> - [**ExpressJS**](https://expressjs.com) : Un framework backend Node.js rapide facilitant le développement d'applications backend évolutives.
 
 
