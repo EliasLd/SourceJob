@@ -35,7 +35,7 @@ Elle permet une bonne gestion des données et des requêtes ainsi qu'une interfa
 
 ### Application Web 🖥️ 
 
-<img src='client/src/assets/React.svg' width=40 height=40 align='center'/> - [**React**](https://react.dev) : Il s'agit d'une librairie javascript permettant le développement d'interfaces utilisateur pour des applications en single-page.
+<img src='client/src/assets/React.svg' width=40 height=40 align='center'/> - [**React**](https://react.dev) : Il s'agit d'une librairie javascript permettant le développement d'interfaces utilisateur pour des applications en single-page. <br>
 <img src='client/src/assets/Tailwind.svg' width=40 height=40 align='center'/> - [**Tailwind CSS**](https://tailwindcss.com) : Framework CSS de type "utility-first" facilitant le design et la stylisation d'une page web.
 
 ### Serveur & API 🧬
