@@ -14,7 +14,7 @@ export default function Logout() {
     return(
         <div className='m-5 p-2 flex items-center'>
             <button onClick={handleLogout}>
-                <img src={out} className='w-8 h-8' />
+                <img src={out} alt='logo de déconnexion' className='w-8 h-8' />
             </button>
         </div>
     );

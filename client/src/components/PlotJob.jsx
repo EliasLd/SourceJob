@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Media from 'react-media';
-import Logout from "../auth/logout";
 import Navbar from "./Navbar";
 import MobileNavbar from "./MobileNavbar";
 import info from '../assets/info.svg';
@@ -18,8 +17,6 @@ export default function PlotJob() {
     const navigate = useNavigate();
 
     const [jobsList, setJobsList] = useState([]);
-    const [showJobs, setShowJobs] = useState(true);
-    const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const handleFetchJobs = async () => {
@@ -39,7 +36,6 @@ export default function PlotJob() {
             }
         } catch (error) {
             console.error("Erreur requête:", error);
-            setError(error.message); 
         } finally {
             setLoading(false);
         }
@@ -74,10 +70,8 @@ export default function PlotJob() {
     };
 
     useEffect(() => {
-        if (showJobs) {
-            handleFetchJobs();
-        }
-    }, [showJobs]);
+        handleFetchJobs();
+    }, []);
 
  return (
     <div>
@@ -88,7 +82,7 @@ export default function PlotJob() {
         </Media>
         <div className='flex justify-center mb-10 xr:mt-0'>
             {loading ? <div className='flex justify-center items-center mt-24'>
-                                        <img src={load} className='animate-spin w-10 h-10'/>
+                                        <img src={load} alt='' className='animate-spin w-10 h-10'/>
                                    </div> : <ul className='mt-16 p-2 rounded-2xl grid grid-cols-1 xs:grid-cols-2 gap-x-2 gap-y-2 flex-wrap font-inter font-semibold'>
                 {jobsList.map((job) => (
                     <div className='flex flex-row relative sm:w-96'>
@@ -101,17 +95,17 @@ export default function PlotJob() {
                                 <div className='flex flex-row mt-4 ml-10 xr:ml-0 xr:absolute right-5 bottom-5'>
                                         {job.link !== '' && 
                                         <Link to={job.link}>
-                                            <img src={goLink} alt='image décrivant un lien url' className="w-6 h-6 xr:w-7 xr:h-7 transition ease-in-out duration-300 hover:rotate-180"/>
+                                            <img src={goLink} alt='lien url' className="w-6 h-6 xr:w-7 xr:h-7 transition ease-in-out duration-300 hover:rotate-180"/>
                                         </Link>
                                         }
-                                    <img src={info} onClick={() => handleClickJob(job._id)} className='ml-2 w-6 h-6 xr:w-7 xr:h-7 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110' />
-                                    <img src={job.fav ? filledHearth : emptyHearth} onClick={() => toggleFavorite(job._id)} className='w-6 h-6 xr:w-7 xr:h-7 ml-2 cursor-pointer transition ease-in-out duration-300 hover:scale-75' />
+                                    <img src={info} alt='' onClick={() => handleClickJob(job._id)} className='ml-2 w-6 h-6 xr:w-7 xr:h-7 transition ease-in-out duration-300 hover:cursor-pointer hover:scale-110' />
+                                    <img src={job.fav ? filledHearth : emptyHearth} alt='' onClick={() => toggleFavorite(job._id)} className='w-6 h-6 xr:w-7 xr:h-7 ml-2 cursor-pointer transition ease-in-out duration-300 hover:scale-75' />
                                 </div>
                                 <div className='flex flex-row ml-10 xr:ml-0 absolute right-3 xr:left-3 top-3'>
                                     <img src={job.status === 'En attente' ? applied 
                                             : job.status === 'Entretien' ? pending 
                                             : job.status === 'Refusée' ? closed : validated}
-                                    className='w-5 h-5 xr:w-6 xr:h-6 transition' />
+                                    alt='status de la candidature' className='w-5 h-5 xr:w-6 xr:h-6 transition' />
                                 </div>
                             </div>
                         </div>

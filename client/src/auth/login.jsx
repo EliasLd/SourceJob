@@ -1,4 +1,3 @@
-import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -62,7 +61,7 @@ export default function Login(){
                                     {loading ? (
                                         <div className='flex flex-row items-center gap-x-4'>
                                             <span>Connexion en cours... </span>
-                                            <img src={load} className='animate-spin w-5 h-5' />
+                                            <img src={load} alt='chargement' className='animate-spin w-5 h-5' />
                                         </div>
                                     ) : (
                                         'Se connecter'

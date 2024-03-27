@@ -55,7 +55,7 @@ export default function SignUp() {
                                     {loading ? (
                                         <div className='flex flex-row items-center gap-x-4'>
                                             <span>Création du compte... </span>
-                                            <img src={load} className='animate-spin w-5 h-5' />
+                                            <img src={load} alt='chargement' className='animate-spin w-5 h-5' />
                                         </div>
                                     ) : (
                                         "S'inscrire"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import deleteDraft from '../assets/trash.svg';
 
@@ -37,7 +37,7 @@ export default function DeleteJob({ JobId }) {
             <p>...</p>
         ) : (
             <button onClick={handleDelete}>
-                <img src={deleteDraft} className="w-6 h-6 xr:w-7 xr:h-7"/>
+                <img src={deleteDraft} alt='poubelle' className="w-6 h-6 xr:w-7 xr:h-7"/>
             </button>
         )}
     </div>
