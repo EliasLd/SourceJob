@@ -61,7 +61,7 @@ export default function Login(){
                                     {loading ? (
                                         <div className='flex flex-row items-center gap-x-4'>
                                             <span>Connexion en cours... </span>
-                                            <img src={load} alt='chargement' className='animate-spin w-5 h-5' />
+                                            <img src={load} alt='chargement' className='animate-spin rotate--90 w-5 h-5' />
                                         </div>
                                     ) : (
                                         'Se connecter'

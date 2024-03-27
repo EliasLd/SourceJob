@@ -5,7 +5,7 @@ import Logout from '../auth/logout';
 
 export default function Navbar() {
   return (
-    <nav className='sticky top-0 z-10 bg-white border border-slate-200 '>
+    <nav className='sticky top-0 z-10 bg-white border-b border-slate-200 '>
         <div className='max-w-4xl mx-auto px-4'>
             <div className='flex items-center justify-between h-16'>
                 <Link to='/api/jobs'>

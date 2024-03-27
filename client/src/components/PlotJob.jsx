@@ -87,8 +87,8 @@ export default function PlotJob() {
                 {jobsList.map((job) => (
                     <div className='flex flex-row relative sm:w-96'>
                         <div className='transition ease-in-out duration-500 hover:bg-slate-300 p-1 rounded-2xl w-full'>
-                            <div className='flex justify-center flex-col rounded-2xl bg-slate-200 p-3'>
-                                <li key={`${job.jobName}-${job._id}`} className='mx-10 xr:mx-16 truncate text-2xl border-2 border-b-slate-300'> {job.jobName} </li>
+                            <div className='flex justify-center flex-col rounded-2xl bg-slate-100 p-3'>
+                                <li key={`${job.jobName}-${job._id}`} className='mx-10 xr:mx-16 truncate text-2xl border-b-2 border-b-slate-300'> {job.jobName} </li>
                                 <li key={`${job.jobType}-${job._id}`} className='ml-10 truncate'>-  {job.jobType} </li>
                                 <li key={`${job.jobDuration}-${job._id}`} className='ml-10 truncate'>- {job.jobDuration} </li>
                                 <li key={`${job.Company}-${job._id}`} className='ml-10 truncate'>- {job.Company} </li>
