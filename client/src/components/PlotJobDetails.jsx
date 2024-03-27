@@ -18,28 +18,28 @@ export default function PlotJobDetails() {
 
     const [jobDetails, setJobDetails] = useState(null);
 
-    const fetchJobDetails = async () => {
-        try {
-            const token = localStorage.getItem('token');
-            const res = await fetch(`https://sourcejob.onrender.com/api/jobs/${id}`,{
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-            if (res.ok) {
-                const data = await res.json();
-                setJobDetails(data);
-            } else {
-                console.error('Erreur récupération des détails du job');
-            }
-        } catch (error) {
-            console.error("Erreur requête");
-        }
-    };
-
     useEffect(() => {
+        const fetchJobDetails = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                const res = await fetch(`https://sourcejob.onrender.com/api/jobs/${id}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    setJobDetails(data);
+                } else {
+                    console.error('Erreur récupération des détails du job');
+                }
+            } catch (error) {
+                console.error("Erreur requête");
+            }
+        };
+    
         fetchJobDetails();
-    }, [id, fetchJobDetails]); 
+    }, [id]);
 
     return (
         <div>
