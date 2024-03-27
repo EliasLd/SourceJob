@@ -47,4 +47,13 @@ Elle permet une bonne gestion des données et des requêtes ainsi qu'une interfa
 
 <img src='client/src/assets/MongoDB.svg' width=40 height=40 align='center' /> - [**MongoDB**](https://www.mongodb.com/fr-fr) : Base de donnée NoSQL, orientée documents.
 
+## Répertoires 📁
+
+`client` -  Contient le code source du frontend de l'application <br>
+`server` -  Contient le code source de la partie backend de l'application
+
+## Contributions ✨
+
+Bien évidemment, si vous souhaitez contribuer, c'est ouvert ! 
+N'hésitez pas à ouvrir un pull request
 
