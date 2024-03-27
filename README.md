@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src='src/assets/logo.png' width=200 height=200/>
+  <img src='client/src/assets/logo.png' width=200 height=200/>
 </p>
 <p align='center'>
 <img alt="Static Badge" src="https://img.shields.io/badge/Web%20App%20-%20rgb(205%2C%20205%2C%200)">
