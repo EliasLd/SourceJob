@@ -43,4 +43,8 @@ Elle permet une bonne gestion des données et des requêtes ainsi qu'une interfa
 <img src='client/src/assets/NodeJS.svg' width=40 height=40 align='center'/> - [**NodeJS**](https://nodejs.org/en) : Il s'agit d'un environnement d’exécution single-thread, open-source et multi-plateforme permettant de créer des applications rapides et évolutives côté serveur et en réseau. <br>
 <img src='client/src/assets/ExpressJS.svg' width=40 height=40 align='center'/> - [**ExpressJS**](https://expressjs.com) : Un framework backend Node.js rapide facilitant le développement d'applications backend évolutives.
 
+### Base de données 🗃️
+
+<img src='client/src/assets/MongoDB.svg' width=40 height=40 align='center' /> - [**MongoDB**](https://www.mongodb.com/fr-fr) : Base de donnée NoSQL, orientée documents.
+
 
