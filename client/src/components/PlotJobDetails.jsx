@@ -39,7 +39,7 @@ export default function PlotJobDetails() {
 
     useEffect(() => {
         fetchJobDetails();
-    }, [id]); 
+    }, [id, fetchJobDetails]); 
 
     return (
         <div>
