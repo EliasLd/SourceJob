@@ -91,7 +91,7 @@ export default function PlotJob() {
                                         <img src={load} className='animate-spin w-10 h-10'/>
                                    </div> : <ul className='mt-16 p-2 rounded-2xl grid grid-cols-1 xs:grid-cols-2 gap-x-2 gap-y-2 flex-wrap font-inter font-semibold'>
                 {jobsList.map((job) => (
-                    <div className='flex flex-row relative'>
+                    <div className='flex flex-row relative sm:w-96'>
                         <div className='transition ease-in-out duration-500 hover:bg-slate-300 p-1 rounded-2xl w-full'>
                             <div className='flex justify-center flex-col rounded-2xl bg-slate-200 p-3'>
                                 <li key={`${job.jobName}-${job._id}`} className='mx-10 xr:mx-16 truncate text-2xl border-2 border-b-slate-300'> {job.jobName} </li>
