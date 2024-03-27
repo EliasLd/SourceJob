@@ -33,4 +33,8 @@ De cette manière, l'étudiant y voit déjà plus clair dans ce processus comple
 La structure de l'application est basée sur un stack "MERN" (**M**ongoDB, **E**xpress, **R**eact, **N**ode).
 Elle permet une bonne gestion des données et des requêtes ainsi qu'une interface utilisateur de qualité.
 
+### Application Web 🖥️ 
+
+<img src='client/src/assets/React.svg' width=40 height=40 align='center'/> - [**React**](https://react.dev) : Il s'agit d'une librairie javascript permettant le développement d'interfaces utilisateur pour des applications en single-page.
+
 
