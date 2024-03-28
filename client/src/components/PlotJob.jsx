@@ -80,6 +80,9 @@ export default function PlotJob() {
                 matches ? <MobileNavbar /> : <Navbar />
             }
         </Media>
+        <div className='flex justify-center items-center mt-20'>
+            <p className='font-sans font-bold text-3xl'>Bienvenue sur SourceJob !</p>
+        </div>
         <div className='flex justify-center mb-10 xr:mt-0'>
             {loading ? <div className='flex justify-center items-center mt-24'>
                                         <img src={load} alt='' className='animate-spin w-10 h-10'/>
